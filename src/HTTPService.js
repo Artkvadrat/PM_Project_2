@@ -1,6 +1,6 @@
 import User from "./User";
 
-const END_POINT = 'https://radiant-temple-07706.herokuapp.com/';
+const END_POINT = 'https://radiant-temple-07706.herokuapp.com';
 
 export default class HTTPService {
     static async request({method = 'GET', path, body}) {
