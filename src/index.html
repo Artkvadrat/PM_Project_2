@@ -3,8 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>PM Project 2</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello World!</h1>
+  <div id="auth">
+    <form id="loginForm">
+      <label for="loginUsername">Login</label>
+      <input type="text" id="loginUsername">
+      <input type="password" id="loginPassword">
+      <button type="submit">Submit</button>
+    </form>
+
+    <form id="registerForm">
+      <label for="registerUsername">Register</label>
+      <input type="text" id="registerUsername">
+      <input type="text" id="registerEmail">
+      <input type="password" id="registerPassword">
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="authorized">
+      <h1>Authorized</h1>
+    </div>
+  </div>
+  <script src="index.js" type="text/javascript"></script>
 </body>
 </html>
