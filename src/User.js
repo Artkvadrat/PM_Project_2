@@ -1,6 +1,7 @@
 export default class User {
     static get jwtToken() {
-        return window.localStorage.getItem('jwtToken')
+        const token = window.localStorage.getItem('jwtToken')
+        return token === "undefined" || token === "" ? undefined : token
     }
 
     static set jwtToken(value) {
