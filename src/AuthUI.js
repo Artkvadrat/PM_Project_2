@@ -1,3 +1,5 @@
+import AuthService from "./AuthService";
+
 class AuthUI {
     constructor() {
         this.loginForm = document.getElementById('loginForm');
@@ -15,10 +17,19 @@ class AuthUI {
 
     loginFormSubmit(e) {
         e.preventDefault();
+        AuthService.login({
+            loginUsername: this.loginUsername.value,
+            loginPassword: this.loginPassword.value
+        })
     }
 
     registerFormSubmit(e) {
         e.preventDefault();
+        AuthService.register({
+            registerUsername: this.registerUsername.value,
+            registerEmail: this.registerEmail.value,
+            registerPassword: this.registerPassword.value
+        })
     }
 
     registerListeners() {
