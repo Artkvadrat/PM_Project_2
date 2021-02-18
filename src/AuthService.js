@@ -12,7 +12,6 @@ export default class AuthService {
             },
         }).then((data) => {
             if(data.jwt) User.jwtToken = data.jwt;
-            return data
         });
     }
     static async register({registerUsername, registerEmail, registerPassword}) {
@@ -26,7 +25,6 @@ export default class AuthService {
             },
         }).then((data) => {
             if(data.jwt) User.jwtToken = data.jwt;
-            return data
         });
     }
 }

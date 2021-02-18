@@ -1,4 +1,5 @@
 import AuthService from "./AuthService";
+import User from "./User";
 
 class AuthUI {
     constructor() {
