@@ -2,7 +2,9 @@ body{
     font-family: Roboto, sans-serif;
     color: #232227;
     background: url("../images/vaporwave_digital_artwork_illustration_drawing_4k_hd.jpg") no-repeat;
-    background-size: 100%;
+    backdrop-filter: blur(5px);
+    background-size: cover;
+    height: 100vh;
 }
 
 .wrapper{
@@ -22,7 +24,7 @@ body{
 }
 
 .columns__column{
-
+    padding-bottom: 40px;
 }
 
 .columns__column h2{
@@ -31,10 +33,34 @@ body{
 }
 
 .counter{
+    margin-left: 10px;
     background: #eaebef;
     color: #9e9fa4;
     padding: 9px;
     border-radius: 50%;
     width: 55px;
     height: 55px;
+}
+
+.cards_wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.card{
+    padding: 15px;
+    border-radius: 10px;
+    background: #ffffff;
+    min-height: 100px;
+    width: 100%;
+}
+
+.card h3{
+    font-size: 24px;
+    color: #232227;
+    margin-bottom: 10px;
 }
