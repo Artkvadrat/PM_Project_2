@@ -10,26 +10,31 @@
 </head>
 <body>
   <div id="auth">
-    <form id="loginForm">
-      <label for="loginUsername">Login</label>
-      <input type="text" id="loginUsername">
-      <input type="password" id="loginPassword">
-      <button type="submit">Submit</button>
+    <form id="loginForm" class="hide">
+      <h2>Log in</h2>
+      <hr>
+      <input type="text" id="loginUsername" placeholder="username">
+      <input type="password" id="loginPassword" placeholder="password">
+      <button type="submit" class="btn-submit">Login</button>
+      <hr>
+      <a href="" id="registration">Not a member yet? Register here</a>
     </form>
 
-    <form id="registerForm">
-      <label for="registerUsername">Register</label>
-      <input type="text" id="registerUsername">
-      <input type="text" id="registerEmail">
-      <input type="password" id="registerPassword">
-      <button type="submit">Submit</button>
+    <form id="registerForm" class="hide">
+      <h2>Register here</h2>
+      <hr>
+      <input type="text" id="registerUsername" placeholder="username">
+      <input type="text" id="registerEmail" placeholder="email">
+      <input type="password" id="registerPassword" placeholder="password">
+      <button type="submit" class="btn-submit">Register</button>
+      <hr>
+      <a href="" id="login">Already a member? Login here</a>
     </form>
 
-    <div id="authorized">
-      <h1>Authorized</h1>
-    </div>
+<!--    <div id="authorized">-->
+<!--      <h1>Authorized</h1>-->
+<!--    </div>-->
   </div>
-
   <div class="wrapper">
     <main class="columns">
       <section id="to-do" class="columns__column">
