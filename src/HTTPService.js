@@ -10,18 +10,15 @@ export default class HTTPService {
             method,
             headers: {
                 'Content-Type': 'application/json',
-                ...(User.jwtToken && {
-                    Authorization: `Bearer ${User.jwtToken}`,
-                }),
+                ...(User.jwtToken && { Authorization: `Bearer ${User.jwtToken}` }),
             },
-            ...(body && {
-                body: JSON.stringify(body),
-            }),
+            ...(body && { body: JSON.stringify(body) }),
         };
 
         return fetch(url, options)
             .then((res) => {
-                return res.json();
+                if(res.status >= 200 && res.status < 300) return res.json();
+                else throw res
             })
             .catch(console.log)
     }

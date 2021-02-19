@@ -1,9 +1,10 @@
 import User from "./User";
 import HTTPService from "./HTTPService";
+import emitter from "./EventEmitter"
 
 export default class AuthService {
     static async login({loginUsername, loginPassword}) {
-        HTTPService.request({
+        return HTTPService.request({
             method: 'POST',
             path: '/auth/local',
             body: {
@@ -11,11 +12,14 @@ export default class AuthService {
                 password: loginPassword,
             },
         }).then((data) => {
-            if(data.jwt) User.jwtToken = data.jwt;
+            User.jwtToken = data.jwt;
+            emitter.emit('loggedIn')
+            return data
         });
     }
+
     static async register({registerUsername, registerEmail, registerPassword}) {
-        HTTPService.request({
+        return HTTPService.request({
             method: 'POST',
             path: '/auth/local/register',
             body: {
@@ -24,7 +28,9 @@ export default class AuthService {
                 password: registerPassword,
             },
         }).then((data) => {
-            if(data.jwt) User.jwtToken = data.jwt;
+            User.jwtToken = data.jwt;
+            emitter.emit('loggedIn')
+            return data
         });
     }
 }
