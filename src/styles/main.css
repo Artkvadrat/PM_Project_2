@@ -1,9 +1,7 @@
 body{
     font-family: Roboto, sans-serif;
     color: #232227;
-    background: url("../images/vaporwave_digital_artwork_illustration_drawing_4k_hd.jpg") no-repeat;
-    backdrop-filter: blur(5px);
-    background-size: cover;
+    background: #ffffff;
     height: 100vh;
 }
 
