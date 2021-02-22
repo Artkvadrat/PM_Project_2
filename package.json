@@ -23,5 +23,8 @@
     "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "parcel": "^1.12.4"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
   }
 }

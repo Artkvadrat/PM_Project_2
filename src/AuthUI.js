@@ -21,15 +21,17 @@ class AuthUI {
 
         this.registration = document.getElementById('registration');
         this.login = document.getElementById('login');
+
+        this.loginBtn = document.getElementById('btn-login')
+        this.regBtn = document.getElementById('btn-reg')
     }
 
     render() {
             console.log("User.jwtToken" + User.jwtToken)
             if (User.jwtToken) {
-
                 this.registerForm.classList.add('hide');
                 this.loginForm.classList.add('hide');
-                this.auth.style.cssText = 'opacity: 0'
+                this.auth.style.cssText = 'display: none'
                 // this.authorized.classList.remove('hide');
             } else {
                 this.loginForm.classList.remove('hide');
@@ -62,18 +64,22 @@ class AuthUI {
         this.registration.onclick = this.registrationClick;
         this.login.onclick = this.loginClick;
 
+        this.loginBtn.onclick = this.loginClick
+        this.regBtn.onclick = this.registrationClick
         emitter.subscribe('loggedIn', this.render)
 
     }
 
     registrationClick(e) {
         e.preventDefault();
+        document.getElementById('auth').style.cssText = 'display: block'
         document.getElementById('loginForm').classList.add('hide');
         document.getElementById('registerForm').classList.remove('hide')
     }
 
     loginClick(e) {
         e.preventDefault()
+        document.getElementById('auth').style.cssText = 'display: block'
         document.getElementById('registerForm').classList.add('hide')
         document.getElementById('loginForm').classList.remove('hide')
     }
