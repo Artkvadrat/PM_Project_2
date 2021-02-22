@@ -3,126 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <title>PM Project 2</title>
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="auth">
-    <form id="loginForm" class="hide">
-      <h2>Log in</h2>
-      <hr>
-      <input type="text" id="loginUsername" placeholder="username">
-      <input type="password" id="loginPassword" placeholder="password">
-      <button type="submit" class="btn-submit">Login</button>
-      <hr>
-      <a href="" id="registration">Not a member yet? Register here</a>
+<div class="header">
+    <nav class="navbar">
+        <a href="" class="logo">Cardkeo</a>
+        <div class="btn-right">
+            <a id="btn-login">Log in</a>
+            <a id="btn-reg">Registration</a>
+        </div>
+    </nav>
+</div>
+<div id="auth" class="modal">
+    <form id="loginForm" class="modal-form hide">
+        <a class="close" title="close"></a>
+        <h2>Log in</h2>
+        <hr>
+        <input type="text" id="loginUsername" placeholder="username">
+        <input type="password" id="loginPassword" placeholder="password">
+        <button type="submit" class="btn-submit">Login</button>
+        <hr>
+        <a href="" id="registration" class="link">Not a member yet? Register here</a>
     </form>
 
-    <form id="registerForm" class="hide">
-      <h2>Register here</h2>
-      <hr>
-      <input type="text" id="registerUsername" placeholder="username">
-      <input type="text" id="registerEmail" placeholder="email">
-      <input type="password" id="registerPassword" placeholder="password">
-      <button type="submit" class="btn-submit">Register</button>
-      <hr>
-      <a href="" id="login">Already a member? Login here</a>
+    <form id="registerForm" class="modal-form hide">
+        <h2>Register here</h2>
+        <a class="close"></a>
+        <hr>
+        <input type="text" id="registerUsername" placeholder="username">
+        <input type="text" id="registerEmail" placeholder="email">
+        <input type="password" id="registerPassword" placeholder="password">
+        <button type="submit" class="btn-submit">Register</button>
+        <hr>
+        <a href="" id="login" class="link">Already a member? Login here</a>
     </form>
 
-<!--    <div id="authorized">-->
-<!--      <h1>Authorized</h1>-->
-<!--    </div>-->
-  </div>
-  <div class="wrapper">
+    <!--    <div id="authorized">-->
+    <!--      <h1>Authorized</h1>-->
+    <!--    </div>-->
+</div>
+<div class="wrapper">
     <main class="columns">
-      <section  class="columns__column">
-        <h2>To Do <span class="counter">1</span></h2>
-        <div id="to-do" class="cards_wrapper">
-          <div class="card">
-            <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <section class="columns__column">
+            <h2>To Do <span class="counter">1</span></h2>
+            <div id="to-do" class="cards_wrapper">
+                <div class="card">
+                    <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
             <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-        </div>
-      </section>
-      <section  class="columns__column">
-        <h2>In Progress <span class="counter">3</span></h2>
-        <div id="in-progress" class="cards_wrapper">
-          <div class="card">
-            <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+            </div>
+        </section>
+        <section class="columns__column">
+            <h2>In Progress <span class="counter">3</span></h2>
+            <div id="in-progress" class="cards_wrapper">
+                <div class="card">
+                    <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
             <h3>Testing testing testing testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-          <div class="card">
-            <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+                <div class="card">
+                    <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
             <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-          <div class="card">
-            <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+                <div class="card">
+                    <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
             <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-        </div>
-      </section>
-      <section  class="columns__column">
-        <h2>Testing <span class="counter">4</span></h2>
-        <div id="testing" class="cards_wrapper">
-          <div class="card">
-            <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+            </div>
+        </section>
+        <section class="columns__column">
+            <h2>Testing <span class="counter">4</span></h2>
+            <div id="testing" class="cards_wrapper">
+                <div class="card">
+                    <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
             <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-          <div class="card">
-            <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+                <div class="card">
+                    <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
             <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-          <div class="card">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+                <div class="card">
             <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
-            <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-          <div class="card">
-            <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <h3>Testing</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+                <div class="card">
+                    <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
             <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-        </div>
-      </section>
-      <section  class="columns__column">
-        <h2>Done <span class="counter">1</span></h2>
-        <div id="done" class="cards_wrapper">
-          <div class="card">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+            </div>
+        </section>
+        <section class="columns__column">
+            <h2>Done <span class="counter">1</span></h2>
+            <div id="done" class="cards_wrapper">
+                <div class="card">
             <svg  width="20px" height="20px" viewBox="0 0 16 16" class="card_menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             </svg>
-            <h3>Testing</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit ratione! Fugit iure, omnis!</p>
-          </div>
-        </div>
-      </section>
+                    <h3>Testing</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
+                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
+                        ratione! Fugit iure, omnis!</p>
+                </div>
+            </div>
+        </section>
     </main>
-  </div>
-
-  <script src="index.js" type="text/javascript"></script>
+</div>
+<script src="index.js" type="text/javascript"></script>
+<script src="modalWindow.js" type="text/javascript"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@ export default class AuthService {
                 password: registerPassword,
             },
         }).then((data) => {
-            if (data.jwt) User.jwtToken = data.jwt;
+            User.jwtToken = data.jwt;
             emitter.emit('loggedIn')
             return data
         });
