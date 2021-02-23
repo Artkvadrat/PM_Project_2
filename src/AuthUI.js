@@ -22,23 +22,24 @@ class AuthUI {
         this.registration = document.getElementById('registration');
         this.login = document.getElementById('login');
 
+        this.btnRight = document.getElementById('btn-right')
         this.loginBtn = document.getElementById('btn-login')
         this.regBtn = document.getElementById('btn-reg')
+
+        this.userName = document.querySelector('#user-name')
     }
 
     render() {
         console.log("User.jwtToken  " + User.jwtToken)
-        if (User.jwtToken) {
+        console.log('name' + User.username)
+        if (User.jwtToken && User.username) {
             this.registerForm.classList.add('hide');
             this.loginForm.classList.add('hide');
             this.auth.style.display = 'none';
-            // this.authorized.classList.remove('hide');
+            this.showName(User.username)
         } else {
             this.loginForm.classList.remove('hide');
-            // this.authorized.classList.add('hide');
         }
-
-
     }
 
     loginFormSubmit(e) {
@@ -88,6 +89,11 @@ class AuthUI {
         document.getElementById('loginForm').classList.remove('hide')
     }
 
+    showName(name) {
+        this.btnRight.classList.add('hide')
+        this.userName.style.display = 'block'
+        this.userName.innerHTML = `<p class="name">Hello, ${name}</p>`
+    }
 }
 
 export default new AuthUI();
