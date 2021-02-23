@@ -52,13 +52,21 @@ class CardsUI {
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
 
-        const cardButton = document.createElement('button');
-        cardButton.classList.add('card_menu');
-        const cardImgDots = document.createElement('img');
-        cardImgDots.src = './menu.f5c051c5.png';
-        cardImgDots.alt = 'Menu button';
-        cardButton.append(cardImgDots);
-        cardElement.append(cardButton);
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('card_delete');
+        const cardImgDelete = document.createElement('img');
+        cardImgDelete.src = './delete.0ca3ab0c.png';
+        cardImgDelete.alt = 'Delete';
+        deleteButton.append(cardImgDelete);
+        cardElement.append(deleteButton);
+
+        const editButton = document.createElement('button');
+        editButton.classList.add('card_edit');
+        const cardImgEdit = document.createElement('img');
+        cardImgEdit.src = './edit.4c82a68f.png';
+        cardImgEdit.alt = 'Menu button';
+        editButton.append(cardImgEdit);
+        cardElement.append(editButton);
 
         const cardTitle = document.createElement('h3');
         cardTitle.innerText = title;
@@ -75,7 +83,7 @@ class CardsUI {
             console.log('hello')
         }
 
-        cardButton.addEventListener('click', showChangeModal);
+        editButton.addEventListener('click', showChangeModal);
 
         document.getElementById(`${status}`).append(cardElement);
     }
