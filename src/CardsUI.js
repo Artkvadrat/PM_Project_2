@@ -36,10 +36,26 @@ class CardsUI {
         });
     }
 
+    deleteCard(id) {
+        return CardsService.deleteCard(id).catch(console.log);
+    }
+
+    updateCard(card) {
+        return CardsService.updateCard(card).catch(console.log);
+    }
+
     createCard({title, description, status}) {
         console.log('Create card')
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
+
+        const cardButton = document.createElement('button');
+        cardButton.classList.add('card_menu');
+        const cardImgDots = document.createElement('img');
+        cardImgDots.src = './menu.f5c051c5.png';
+        cardImgDots.alt = 'Menu button';
+        cardButton.append(cardImgDots);
+        cardElement.append(cardButton);
 
         const cardTitle = document.createElement('h3');
         cardTitle.innerText = title;
@@ -67,10 +83,6 @@ class CardsUI {
             this.init();
             this.getCards();
         });
-
-        if (User.jwtToken) {
-            emitter.emit('loggedIn')
-        }
 
         this.addCardForm.addEventListener('submit', this.addCard);
     }
