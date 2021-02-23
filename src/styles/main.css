@@ -8,9 +8,10 @@ body{
 }
 
 .header {
-    width: 1280px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 auto 20px;
     padding: 10px;
+    background-color: hsla(0, 0%, 0%, 0.16);
 }
 
 .header-fixed {
@@ -20,9 +21,22 @@ body{
     background-color: #ffffff;
     opacity: 0.7;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+#user-name {
+    display: none;
+    margin: 10px;
+}
+
+.name {
+    color: #fff;
+    font-size: 20px;
 }
 
 .logo {
@@ -33,7 +47,6 @@ body{
     padding: 5px;
     border-radius: 10px;
     background: #006cba;
-    opacity: 0.7;
 }
 
 .wrapper{
@@ -289,7 +302,6 @@ hr {
 
 .modal-form .link {
     margin-top: 10px;
-    text-decoration: none;
     color: #666;
     font-weight: 400;
     text-align: center;
@@ -324,7 +336,7 @@ hr {
     transform: rotate(-45deg);
 }
 
-.btn-right {
+#btn-right {
     padding: 10px;
     font-size: 20px;
 }
@@ -332,10 +344,9 @@ hr {
 #btn-login, #btn-reg {
     text-decoration: none;
     color: #fff;
-    background: #006cba;
+    background-color: #0787e7;
     padding: 5px;
     border-radius: 5px;
-    opacity: 0.7;
 }
 
 #btn-reg {
@@ -344,14 +355,14 @@ hr {
 }
 
 #btn-login:hover{
-    background-color: #006cba;
-    opacity: 1;
+    background-color: #005493;
     cursor: pointer;
 }
 
 #btn-reg:hover {
-    border: 1px solid #006cba;
     cursor: pointer;
+    background-color: #005493;
+    color: white;
 }
 
 #context_menu{

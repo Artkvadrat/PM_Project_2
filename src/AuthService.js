@@ -15,7 +15,7 @@ export default class AuthService {
             User.jwtToken = data.jwt;
             emitter.emit('loggedIn')
             return data
-        });
+        }).then(data => User.username = data.user.username)
     }
 
     static async register({registerUsername, registerEmail, registerPassword}) {
