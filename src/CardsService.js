@@ -5,6 +5,10 @@ export default class CardsService {
         return HTTPService.request({path: '/cards'});
     }
 
+    static async getOneCard(id) {
+        return HTTPService.request({path: `/cards/${id}`});
+    }
+
     static async createCard(card) {
         return HTTPService.request({
             path: '/cards',
