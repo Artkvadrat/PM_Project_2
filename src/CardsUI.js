@@ -1,6 +1,7 @@
 import CardsService from "./CardsService";
 import User from "./User";
 import emitter from './EventEmitter';
+import ChangeCardModal from "./modals/changeCardModal";
 
 class CardsUI {
 
@@ -36,10 +37,26 @@ class CardsUI {
         });
     }
 
-    createCard({title, description, status}) {
+    deleteCard(id) {
+        return CardsService.deleteCard(id).catch(console.log);
+    }
+
+    updateCard(card) {
+        return CardsService.updateCard(card).catch(console.log);
+    }
+
+    createCard({title, description, status, id}) {
         console.log('Create card')
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
+
+        const cardButton = document.createElement('button');
+        cardButton.classList.add('card_menu');
+        const cardImgDots = document.createElement('img');
+        cardImgDots.src = './menu.f5c051c5.png';
+        cardImgDots.alt = 'Menu button';
+        cardButton.append(cardImgDots);
+        cardElement.append(cardButton);
 
         const cardTitle = document.createElement('h3');
         cardTitle.innerText = title;
@@ -50,6 +67,12 @@ class CardsUI {
             cardDescription.innerHTML = description;
             cardElement.append(cardDescription);
         }
+
+        const changeHandler = () => {
+            ChangeCardModal.show(id, title, description)
+        }
+
+        cardButton.addEventListener('click', changeHandler);
 
         document.getElementById(`${status}`).append(cardElement);
     }
@@ -67,10 +90,6 @@ class CardsUI {
             this.init();
             this.getCards();
         });
-
-        if (User.jwtToken) {
-            emitter.emit('loggedIn')
-        }
 
         this.addCardForm.addEventListener('submit', this.addCard);
     }

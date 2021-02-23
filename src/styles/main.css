@@ -1,7 +1,7 @@
-body{
+body {
     font-family: Roboto, sans-serif;
     color: #232227;
-    background: url("../images/background.jpg") no-repeat;
+    background: url("../images/background.jpg") no-repeat fixed;
     backdrop-filter: blur(5px);
     background-size: cover;
     height: 100vh;
@@ -49,188 +49,36 @@ body{
     background: #006cba;
 }
 
-.wrapper{
+.wrapper {
     width: 1280px;
     margin: 0 auto;
-    height: 800px;
+    height: 90vh;
     background: #f5f6f8;
     border-radius: 10px;
 }
 
-.columns{
+.columns {
     padding: 35px;
     display: grid;
     grid-gap: 35px;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 80vh;
 }
 
-.columns__column{
+.columns__column {
     padding-bottom: 40px;
 }
 
-.columns__column h2{
+.columns__column h2 {
     font-size: 15px;
     color: #48474d;
 }
 
-.counter{
-    margin-left: 10px;
-    background: #eaebef;
-    color: #9e9fa4;
-    padding: 9px;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-}
-
-
 .hide {
     display: none;
 }
 
-#loginForm, #registerForm {
-    padding: 20px;
-    max-width: 400px;
-    background: #eaebef;
-    border-radius: 10px;
-    font-size: 14px;
-
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-
-    z-index: 99999;
-    opacity: 1;
-}
-
-input {
-    width: 100%;
-    height: 30px;
-
-    margin: 0 0 10px;
-    padding: 5px;
-
-    border-radius: 10px;
-    border: none;
-}
-
-.btn-submit {
-    display: block;
-    width: 100%;
-    height: 30px;
-    padding: 5px;
-    color: #fff;
-    background-color: #4d90fe;
-
-    border: none;
-    border-radius: 10px;
-}
-
-.btn-submit:hover {
-    background: #006cba;
-    color: #fff;
-}
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 2px solid #fff;
-    margin: 1em 0;
-    padding: 0;
-}
-
-#auth:before {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-
-    content: '';
-    background: #000;
-    opacity: 0.7;
-
-    z-index: 9999;
-}
-
-#loginForm a, #registerForm a {
-    margin-top: 10px;
-    text-decoration: none;
-    color: #666;
-    font-weight: 400;
-    text-align: center;
-    display: inline-block;
-    opacity: 0.6;
-    transition: opacity ease 0.5s;
-}
-
-.cards_wrapper{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    width: 100%;
-    height: 700px;
-    overflow-y: auto;
-}
-
-.cards_wrapper::-webkit-scrollbar-track{
-    border-radius: 4px;
-}
-
-.cards_wrapper::-webkit-scrollbar{
-    width: 6px;
-}
-
-.cards_wrapper::-webkit-scrollbar-thumb{
-    border-radius: 4px;
-    background: #f5f6f8;
-}
-
-.cards_wrapper:hover::-webkit-scrollbar-thumb{
-    background: #232227;
-}
-
-.card{
-    position: relative;
-    padding: 15px;
-    border-radius: 10px;
-    background: #ffffff;
-    width: 100%;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 4px -2px rgba(0, 0, 0, .2);
-}
-
-.card_menu{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-    border: none;
-    background: #fff;
-}
-
-.card_menu:focus{
-    outline: none;
-}
-
-.card_menu img{
-    width: 16px;
-    height: 16px;
-}
-
-.card h3{
-    font-size: 24px;
-    color: #232227;
-    margin: 10px 0;
-}
-
-.hide {
-    display: none;
-}
-
+#loginForm, #registerForm,
 .modal-form {
     padding: 20px;
     max-width: 400px;
@@ -248,7 +96,8 @@ hr {
     opacity: 1;
 }
 
-input {
+#registerForm input,
+#loginForm input {
     width: 100%;
     height: 30px;
 
@@ -274,7 +123,6 @@ input {
 .btn-submit:hover {
     background: #006cba;
     color: #fff;
-    cursor: pointer;
 }
 
 hr {
@@ -286,6 +134,7 @@ hr {
     padding: 0;
 }
 
+#auth:before,
 .modal:before {
     position: fixed;
     width: 100%;
@@ -300,8 +149,10 @@ hr {
     z-index: 9999;
 }
 
+#loginForm a, #registerForm a,
 .modal-form .link {
     margin-top: 10px;
+    text-decoration: none;
     color: #666;
     font-weight: 400;
     text-align: center;
@@ -309,6 +160,86 @@ hr {
     opacity: 0.6;
     transition: opacity ease 0.5s;
 }
+
+.cards_wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.cards_wrapper::-webkit-scrollbar-track {
+    border-radius: 4px;
+}
+
+.cards_wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cards_wrapper::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #f5f6f8;
+}
+
+.cards_wrapper:hover::-webkit-scrollbar-thumb {
+    background: #232227;
+}
+
+.card {
+    position: relative;
+    padding: 15px;
+    border-radius: 10px;
+    background: #ffffff;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 4px -2px rgba(0, 0, 0, .2);
+}
+
+.card_delete {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+}
+
+.card_edit {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+}
+
+.card_delete:focus, .card_edit:focus {
+    outline: none;
+}
+
+.card_delete img, .card_edit img {
+    width: 16px;
+    height: 16px;
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #232227;
+    margin: 10px 0;
+}
+
+.hide {
+    display: none;
+}
+
+.btn-submit:hover {
+    background: #006cba;
+    color: #fff;
+    cursor: pointer;
+}
+
 .close {
     position: absolute;
     right: 32px;
@@ -317,10 +248,12 @@ hr {
     height: 32px;
     opacity: 0.3;
 }
+
 .close:hover {
     opacity: 1;
     cursor: pointer;
 }
+
 .close:before, .close:after {
     position: absolute;
     left: 15px;
@@ -329,9 +262,11 @@ hr {
     width: 2px;
     background-color: #333;
 }
+
 .close:before {
     transform: rotate(45deg);
 }
+
 .close:after {
     transform: rotate(-45deg);
 }
@@ -365,38 +300,54 @@ hr {
     color: white;
 }
 
-#context_menu{
+#editModal {
     display: none;
-    position: absolute;
-    padding: 10px 0;
-    width: 150px;
-    box-shadow: 1px 1px 2px #cfcfcf;
-    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
     z-index: 10;
+    background-color: rgba(0,0,0,0.5);
 }
 
-#context_menu ul li{
-    list-style-type: none;
+.editModalInputs {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 320px;
+    margin-left: -250px;
+    margin-top: -160px;
+    background-color: white;
 }
 
-#context_menu ul a{
-    display: block;
-    cursor: pointer;
-    padding: 6px 12px;
+.editModalInputs form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
-#context_menu ul a img{
-    height: 16px;
-    width: 16px;
-    float: left;
+.editModalInputs label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 }
 
-#context_menu ul a:hover{
-    background: #0066aa;
+.editModalInputs input,
+.editModalInputs textarea {
+    font-family: 'Roboto', sans-serif;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.editModalInputs button {
+    margin: 30px auto 0 auto;
+    background-color: #006cba;
+    outline: none;
+    border: 0;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
     color: #fff;
 }
 
-.context_menu_text{
-    margin-left: 5px;
-    margin-top: 2px;
-}

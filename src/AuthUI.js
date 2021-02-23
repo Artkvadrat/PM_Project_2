@@ -68,7 +68,11 @@ class AuthUI {
         this.loginBtn.onclick = this.loginClick;
         this.regBtn.onclick = this.registrationClick;
 
-        emitter.subscribe('loggedIn', this.render)
+        emitter.subscribe('loggedIn', this.render);
+
+        if (User.jwtToken) {
+            emitter.emit('loggedIn');
+        }
     }
 
     registrationClick(e) {
