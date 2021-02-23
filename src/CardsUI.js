@@ -14,6 +14,7 @@ class CardsUI {
         this.registerListeners = this.registerListeners.bind(this);
         this.addCard = this.addCard.bind(this);
         this.getCards = this.getCards.bind(this);
+        this.createCard = this.createCard.bind(this);
     }
 
     addCard(e) {
@@ -22,16 +23,35 @@ class CardsUI {
         return CardsService.createCard({
             title: this.cardTitleInput.value,
             status: 'to_do',
-            description: 'Lorem ipsun'
+            description: this.cardDescriptionInput
         })
             .then(this.getCards)
             .catch(console.log)
     }
 
     getCards() {
-        return CardsService.getCards().then((card) => {
-            console.log(card);
+        console.log('getCards');
+        return CardsService.getCards().then((cards) => {
+            cards.forEach(this.createCard);
         });
+    }
+
+    createCard({title, description, status}) {
+        console.log('Create card')
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+
+        const cardTitle = document.createElement('h3');
+        cardTitle.innerText = title;
+        cardElement.append(cardTitle);
+
+        if (description) {
+            const cardDescription = document.createElement('p');
+            cardDescription.innerHTML = description;
+            cardElement.append(cardDescription);
+        }
+
+        document.getElementById(`${status}`).append(cardElement);
     }
 
     init() {
@@ -43,7 +63,14 @@ class CardsUI {
     }
 
     registerListeners() {
-        emitter.subscribe('loggedIn', this.init);
+        emitter.subscribe('loggedIn', () => {
+            this.init();
+            this.getCards();
+        });
+
+        if (User.jwtToken) {
+            emitter.emit('loggedIn')
+        }
 
         this.addCardForm.addEventListener('submit', this.addCard);
     }

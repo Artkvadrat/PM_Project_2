@@ -27,11 +27,11 @@ class AuthUI {
     }
 
     render() {
-        console.log("User.jwtToken" + User.jwtToken)
+        console.log("User.jwtToken  " + User.jwtToken)
         if (User.jwtToken) {
             this.registerForm.classList.add('hide');
             this.loginForm.classList.add('hide');
-            this.auth.style.display = 'none'
+            this.auth.style.display = 'none';
             // this.authorized.classList.remove('hide');
         } else {
             this.loginForm.classList.remove('hide');
@@ -64,10 +64,10 @@ class AuthUI {
         this.registration.onclick = this.registrationClick;
         this.login.onclick = this.loginClick;
 
-        this.loginBtn.onclick = this.loginClick
-        this.regBtn.onclick = this.registrationClick
-        emitter.subscribe('loggedIn', this.render)
+        this.loginBtn.onclick = this.loginClick;
+        this.regBtn.onclick = this.registrationClick;
 
+        emitter.subscribe('loggedIn', this.render)
     }
 
     registrationClick(e) {
