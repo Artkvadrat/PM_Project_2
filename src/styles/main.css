@@ -76,7 +76,7 @@ body{
 }
 
 #loginForm, #registerForm,
-.modal-form{
+.modal-form {
     padding: 20px;
     max-width: 400px;
     background: #eaebef;
@@ -327,8 +327,8 @@ hr {
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
     background-color: rgba(0,0,0,0.5);
+    z-index: 10;
 }
 
 .editModalInputs {
@@ -336,16 +336,18 @@ hr {
     top: 50%;
     left: 50%;
     width: 500px;
-    height: 320px;
+    height: 380px;
     margin-left: -250px;
-    margin-top: -160px;
+    margin-top: -190px;
     background-color: white;
+    z-index: 100;
 }
 
 .editModalInputs form {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding-top: 15px;
 }
 
 .editModalInputs label {
@@ -359,10 +361,28 @@ hr {
     font-family: 'Roboto', sans-serif;
     width: 90%;
     margin: 0 auto;
+    padding: 5px;
+    font-size: 16px;
 }
 
-.editModalInputs button {
-    margin: 30px auto 0 auto;
+.editModalInputs button:first-child {
+    display: block;
+    margin-left: auto;
+    margin-bottom: -30px;
+    background-color: inherit;
+    border: 0;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.editModalInputs button:first-child img {
+    width: 25px;
+    height: 25px;
+}
+
+.editModalInputs button:last-child {
+    margin: 20px auto 0 auto;
     background-color: #006cba;
     outline: none;
     border: 0;
@@ -370,4 +390,9 @@ hr {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: #fff;
+    cursor: pointer;
+}
+
+.editModalInputs button:last-child:disabled {
+    background-color: gray;
 }
