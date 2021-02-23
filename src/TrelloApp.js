@@ -6,6 +6,6 @@ export default class TrelloApp {
         AuthUI.registerListeners();
         AuthUI.render();
         CardsUI.init();
-
+        CardsUI.registerListeners();
     }
 }
