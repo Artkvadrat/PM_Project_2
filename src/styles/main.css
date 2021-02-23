@@ -195,6 +195,17 @@ hr {
     right: 10px;
     top: 10px;
     cursor: pointer;
+    border: none;
+    background: #fff;
+}
+
+.card_menu:focus{
+    outline: none;
+}
+
+.card_menu img{
+    width: 16px;
+    height: 16px;
 }
 
 .card h3{
