@@ -342,3 +342,39 @@ hr {
     border: 1px solid #006cba;
     cursor: pointer;
 }
+
+#context_menu{
+    display: none;
+    position: absolute;
+    padding: 10px 0;
+    width: 150px;
+    box-shadow: 1px 1px 2px #cfcfcf;
+    background: #fff;
+    z-index: 10;
+}
+
+#context_menu ul li{
+    list-style-type: none;
+}
+
+#context_menu ul a{
+    display: block;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+
+#context_menu ul a img{
+    height: 16px;
+    width: 16px;
+    float: left;
+}
+
+#context_menu ul a:hover{
+    background: #0066aa;
+    color: #fff;
+}
+
+.context_menu_text{
+    margin-left: 5px;
+    margin-top: 2px;
+}
