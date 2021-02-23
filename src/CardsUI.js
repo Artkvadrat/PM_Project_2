@@ -31,10 +31,13 @@ class CardsUI {
     }
 
     getCards() {
-        console.log('getCards');
         return CardsService.getCards().then((cards) => {
             cards.forEach(this.createCard);
         });
+    }
+
+    getOneCard(id) {
+        return CardsService.getOneCard(id).catch(console.log);
     }
 
     deleteCard(id) {
@@ -46,7 +49,6 @@ class CardsUI {
     }
 
     createCard({title, description, status, id}) {
-        console.log('Create card')
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
 
@@ -68,11 +70,12 @@ class CardsUI {
             cardElement.append(cardDescription);
         }
 
-        const changeHandler = () => {
-            ChangeCardModal.show(id, title, description)
+        const showChangeModal = async (e) => {
+            await ChangeCardModal.show(id, title, description, this.updateCard, e.path[2]);
+            console.log('hello')
         }
 
-        cardButton.addEventListener('click', changeHandler);
+        cardButton.addEventListener('click', showChangeModal);
 
         document.getElementById(`${status}`).append(cardElement);
     }
