@@ -1,6 +1,7 @@
 import CardsService from "./CardsService";
 import User from "./User";
 import emitter from './EventEmitter';
+import ChangeCardModal from "./modals/changeCardModal";
 
 class CardsUI {
 
@@ -44,7 +45,7 @@ class CardsUI {
         return CardsService.updateCard(card).catch(console.log);
     }
 
-    createCard({title, description, status}) {
+    createCard({title, description, status, id}) {
         console.log('Create card')
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
@@ -66,6 +67,12 @@ class CardsUI {
             cardDescription.innerHTML = description;
             cardElement.append(cardDescription);
         }
+
+        const changeHandler = () => {
+            ChangeCardModal.show(id, title, description)
+        }
+
+        cardButton.addEventListener('click', changeHandler);
 
         document.getElementById(`${status}`).append(cardElement);
     }
