@@ -27,16 +27,16 @@ class AuthUI {
     }
 
     render() {
-            console.log("User.jwtToken" + User.jwtToken)
-            if (User.jwtToken) {
-                this.registerForm.classList.add('hide');
-                this.loginForm.classList.add('hide');
-                this.auth.style.cssText = 'display: none'
-                // this.authorized.classList.remove('hide');
-            } else {
-                this.loginForm.classList.remove('hide');
-                // this.authorized.classList.add('hide');
-            }
+        console.log("User.jwtToken" + User.jwtToken)
+        if (User.jwtToken) {
+            this.registerForm.classList.add('hide');
+            this.loginForm.classList.add('hide');
+            this.auth.style.display = 'none'
+            // this.authorized.classList.remove('hide');
+        } else {
+            this.loginForm.classList.remove('hide');
+            // this.authorized.classList.add('hide');
+        }
 
 
     }
