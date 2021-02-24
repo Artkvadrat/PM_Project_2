@@ -78,9 +78,12 @@ class CardsUI {
             cardElement.append(cardDescription);
         }
 
-        const showChangeModal = async (e) => {
-            await ChangeCardModal.show(id, title, description, this.updateCard, e.path[2]);
-            console.log('hello')
+        const showChangeModal = (e) => {
+            this.getOneCard(id).then((data) => {
+                const {title, description} = data;
+                ChangeCardModal.show(id, title, description, this.updateCard, e.path[2])
+            });
+
         }
 
         editButton.addEventListener('click', showChangeModal);
