@@ -119,6 +119,8 @@ class CardsUI {
             this.getCards();
         });
 
+        emitter.subscribe('unauthorised', this.init);
+
         this.btn.forEach(element => element.addEventListener('click', this.btnAddClick))
     }
 

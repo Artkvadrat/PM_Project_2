@@ -13,9 +13,8 @@ export default class AuthService {
             },
         }).then((data) => {
             User.jwtToken = data.jwt;
-            User.username = data.user.username
-            emitter.emit('loggedIn')
-            return data
+            User.username = data.user.username;
+            emitter.emit('loggedIn');
         })
     }
 
@@ -30,8 +29,8 @@ export default class AuthService {
             },
         }).then((data) => {
             User.jwtToken = data.jwt;
-            emitter.emit('loggedIn')
-            return data
+            User.username = data.user.username;
+            emitter.emit('loggedIn');
         });
     }
 }
