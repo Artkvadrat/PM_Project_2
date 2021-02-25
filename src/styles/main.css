@@ -32,16 +32,6 @@ input:focus, button:focus, textarea:focus {
     margin: 0 auto;
 }
 
-#user-name {
-    display: none;
-    line-height: 44px;
-}
-
-.name {
-    color: #fff;
-    font-size: 20px;
-}
-
 .logo {
     font-size: 28px;
     font-weight: bold;
@@ -52,26 +42,11 @@ input:focus, button:focus, textarea:focus {
     background: #006cba;
 }
 
-.wrapper {
-    width: 1280px;
-    margin: 0 auto;
-    height: 90vh;
-    background: #f5f6f8;
-    border-radius: 10px;
-}
-
-.columns {
-    padding: 35px;
-    display: grid;
-    grid-gap: 35px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 80vh;
-}
-
-.columns__column {
-    padding-bottom: 40px;
-
-    position: relative;
+#userName {
+    display: none;
+    line-height: 44px;
+    color: #fff;
+    font-size: 20px;
 }
 
 .add-card {
@@ -134,7 +109,7 @@ input:focus, button:focus, textarea:focus {
     border: none;
 }
 
-.btn-submit {
+.loginSubmitButton {
     display: block;
     width: 100%;
     height: 30px;
@@ -146,7 +121,7 @@ input:focus, button:focus, textarea:focus {
     border-radius: 10px;
 }
 
-.btn-submit:hover {
+.loginSubmitButton:hover {
     background: #006cba;
     color: #fff;
 }
@@ -186,6 +161,29 @@ hr {
     opacity: 0.6;
     transition: opacity ease 0.5s;
 }
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    height: 90vh;
+    background: #f5f6f8;
+    border-radius: 10px;
+}
+
+.columns {
+    padding: 35px;
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 80vh;
+}
+
+.columns__column {
+    padding-bottom: 40px;
+
+    position: relative;
+}
+
 
 .cards_wrapper {
     display: flex;
@@ -256,7 +254,7 @@ hr {
     display: none;
 }
 
-.btn-submit:hover {
+.loginSubmitButton:hover {
     background: #006cba;
     color: #fff;
     cursor: pointer;
@@ -293,14 +291,14 @@ hr {
     transform: rotate(-45deg);
 }
 
-#btn-right {
+#loggingButtons {
     padding: 10px;
     font-size: 20px;
 }
 
-#btn-login,
-#btn-reg,
-#user-name button {
+#loginButton,
+#registerButton,
+#userName button {
     text-decoration: none;
     color: #fff;
     background-color: #0787e7;
@@ -308,25 +306,25 @@ hr {
     border-radius: 5px;
 }
 
-#btn-reg,
-#user-name button {
+#registerButton,
+#userName button {
     color: #006cba;
     background-color: #ffffff;
 }
 
-#btn-login:hover {
+#loginButton:hover {
     background-color: #005493;
     cursor: pointer;
 }
 
-#btn-reg:hover,
-#user-name button:hover {
+#registerButton:hover,
+#userName button:hover {
     cursor: pointer;
     background-color: #005493;
     color: white;
 }
 
-#user-name button {
+#userName button {
     border: 0;
     margin-left: 10px;
     font-size: 20px;
@@ -334,7 +332,7 @@ hr {
     outline: none;
 }
 
-#editModal, #modal_delete {
+#editCardModal, #deleteCardModal {
     display: none;
     position: fixed;
     top: 0;
@@ -344,7 +342,7 @@ hr {
     z-index: 10;
 }
 
-#modal {
+#addNewCardModal {
     position: fixed;
     top: 0;
     width: 100%;
@@ -454,7 +452,7 @@ hr {
     border-radius: 5px;
 }
 
-#modal_delete h2 {
+#deleteCardModal h2 {
     text-align: center;
     font-size: 14px;
 }

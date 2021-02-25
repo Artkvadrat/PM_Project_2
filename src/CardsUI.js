@@ -5,12 +5,14 @@ import ChangeCardModal from "./modals/changeCardModal";
 import addCardModal from "./modals/addCardModal";
 import DeleteCardModal from "./modals/deleteCardModal";
 
+let statuses = [];
+
 class CardsUI {
 
     constructor() {
         this.cardsContainer = document.getElementsByClassName('wrapper')[0];
 
-        this.btn = document.querySelectorAll('.add-card')
+        this.addCardButton = document.querySelectorAll('.add-card')
 
         this.init = this.init.bind(this);
         this.registerListeners = this.registerListeners.bind(this);
@@ -103,6 +105,10 @@ class CardsUI {
         deleteButton.addEventListener('click', showDeleteModal);
 
         document.getElementById(`${status}`).append(cardElement);
+
+        if (statuses.indexOf(status) === -1) {
+            statuses.push(status);
+        }
     }
 
     init() {
@@ -113,26 +119,34 @@ class CardsUI {
         }
     }
 
-    registerListeners() {
-        emitter.subscribe('loggedIn', () => {
-            this.init();
-            this.getCards();
-        });
-
-        emitter.subscribe('unauthorised', this.init);
-
-        this.btn.forEach(element => element.addEventListener('click', this.btnAddClick))
-    }
-
     btnAddClick(e) {
         e.preventDefault();
-        const cardModal = document.getElementById('modal');
+        const cardModal = document.getElementById('addNewCardModal');
         const section = e.target.getAttribute("data-attribute")
         addCardModal.drawCardModal(cardModal)
         const cardModalForm = document.getElementById('addCardForm'); //rewrite id to cardModalForm
         cardModalForm.addEventListener("submit", e => this.addCard(section, e))
     }
 
+    clearColumns() {
+        statuses.map((item) => {
+            document.getElementById(`${item}`).innerHTML = '';
+        });
+    }
+
+    registerListeners() {
+        emitter.subscribe('loggedIn', () => {
+            this.init();
+            this.getCards();
+        });
+
+        emitter.subscribe('unauthorised', () => {
+            this.init();
+            this.clearColumns();
+        });
+
+        this.addCardButton.forEach(element => element.addEventListener('click', this.btnAddClick))
+    }
 }
 
 export default new CardsUI();

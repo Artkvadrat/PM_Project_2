@@ -1,7 +1,7 @@
 class ChangeCardModal {
 
     constructor() {
-        this.modal = document.getElementById('editModal');
+        this.modal = document.getElementById('editCardModal');
 
         this.show = this.show.bind(this);
         this.close = this.close.bind(this);

@@ -3,7 +3,7 @@ class AddCardModal {
         this.drawCardModal = this.drawCardModal.bind(this)
     }
 
-    drawCardModal(container, title, description) {
+    drawCardModal(container) {
         container.innerHTML =
             `<div id="createCardModal">
                 <form id="addCardForm">
@@ -19,7 +19,7 @@ class AddCardModal {
 
         const closeClick = e => {
             e.preventDefault();
-            this.createCardModal = document.getElementById('modal');
+            this.createCardModal = document.getElementById('addNewCardModal');
             this.createCardModal.classList.add('hide');
             this.createCardModal.innerHTML = '';
         }

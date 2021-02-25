@@ -18,11 +18,11 @@ class AuthUI {
         this.registration = document.getElementById('registration');
         this.login = document.getElementById('login');
 
-        this.btnRight = document.getElementById('btn-right')
-        this.loginBtn = document.getElementById('btn-login')
-        this.regBtn = document.getElementById('btn-reg')
+        this.btnRight = document.getElementById('loggingButtons')
+        this.loginBtn = document.getElementById('loginButton')
+        this.regBtn = document.getElementById('registerButton')
 
-        this.userName = document.getElementById('user-name')
+        this.userName = document.getElementById('userName')
 
         this.loginFormSubmit = this.loginFormSubmit.bind(this);
         this.registerFormSubmit = this.registerFormSubmit.bind(this);
@@ -62,23 +62,6 @@ class AuthUI {
         })
     }
 
-    registerListeners() {
-        this.loginForm.addEventListener('submit', this.loginFormSubmit);
-        this.registerForm.addEventListener('submit', this.registerFormSubmit);
-        this.registration.onclick = this.registrationClick;
-        this.login.onclick = this.loginClick;
-
-        this.loginBtn.onclick = this.loginClick;
-        this.regBtn.onclick = this.registrationClick;
-
-        emitter.subscribe('loggedIn', this.render);
-        emitter.subscribe('unauthorised', this.render);
-
-        if (User.jwtToken) {
-            emitter.emit('loggedIn');
-        }
-    }
-
     registrationClick(e) {
         e.preventDefault();
         this.auth.style.cssText = 'display: block'
@@ -108,6 +91,23 @@ class AuthUI {
         } else {
             this.btnRight.classList.remove('hide');
             this.userName.style.display = 'none';
+        }
+    }
+
+    registerListeners() {
+        this.loginForm.addEventListener('submit', this.loginFormSubmit);
+        this.registerForm.addEventListener('submit', this.registerFormSubmit);
+        this.registration.onclick = this.registrationClick;
+        this.login.onclick = this.loginClick;
+
+        this.loginBtn.onclick = this.loginClick;
+        this.regBtn.onclick = this.registrationClick;
+
+        emitter.subscribe('loggedIn', this.render);
+        emitter.subscribe('unauthorised', this.render);
+
+        if (User.jwtToken) {
+            emitter.emit('loggedIn');
         }
     }
 }
