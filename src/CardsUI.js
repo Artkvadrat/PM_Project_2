@@ -2,6 +2,7 @@ import CardsService from "./CardsService";
 import User from "./User";
 import emitter from './EventEmitter';
 import ChangeCardModal from "./modals/changeCardModal";
+import DeleteCardModal from "./modals/deleteCardModal";
 
 class CardsUI {
 
@@ -83,7 +84,12 @@ class CardsUI {
             console.log('hello')
         }
 
+        const showDeleteModal = async () => {
+            await DeleteCardModal.show(id, this.deleteCard);
+        }
+
         editButton.addEventListener('click', showChangeModal);
+        deleteButton.addEventListener('click', showDeleteModal);
 
         document.getElementById(`${status}`).append(cardElement);
     }
