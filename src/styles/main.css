@@ -30,7 +30,7 @@ body {
 
 #user-name {
     display: none;
-    margin: 10px;
+    line-height: 44px;
 }
 
 .name {
@@ -89,10 +89,6 @@ body {
 
 .add-card:hover {
     background-color: rgba(0, 0, 0, 0.2);
-}
-
-.add-card:focus {
-    outline: none;
 }
 
 .columns__column h2 {
@@ -302,7 +298,9 @@ hr {
     font-size: 20px;
 }
 
-#btn-login, #btn-reg {
+#btn-login,
+#btn-reg,
+#user-name button {
     text-decoration: none;
     color: #fff;
     background-color: #0787e7;
@@ -310,7 +308,8 @@ hr {
     border-radius: 5px;
 }
 
-#btn-reg {
+#btn-reg,
+#user-name button {
     color: #006cba;
     background-color: #ffffff;
 }
@@ -320,13 +319,22 @@ hr {
     cursor: pointer;
 }
 
-#btn-reg:hover {
+#btn-reg:hover,
+#user-name button:hover {
     cursor: pointer;
     background-color: #005493;
     color: white;
 }
 
-#editModal, #modal_delete {
+#user-name button {
+    border: 0;
+    margin-left: 10px;
+    font-size: 20px;
+    width: 80px;
+    outline: none;
+}
+
+#editModal {
     display: none;
     position: fixed;
     top: 0;
@@ -335,7 +343,6 @@ hr {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
 }
-
 #modal {
     position: fixed;
     top: 0;
@@ -345,7 +352,8 @@ hr {
     z-index: 10;
 }
 
-.editModalInputs, #createCardModal {
+.editModalInputs,
+#createCardModal {
     position: relative;
     top: 50%;
     left: 50%;
@@ -358,14 +366,16 @@ hr {
     border-radius: 10px;
 }
 
-.editModalInputs form, #createCardModal form {
+.editModalInputs form,
+#createCardModal form {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding-top: 30px;
 }
 
-.editModalInputs label, #createCardModal label {
+.editModalInputs label,
+#createCardModal label {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     font-size: 20px;
@@ -384,6 +394,11 @@ hr {
     font-size: 16px;
     border: none;
     border-radius: 10px;
+}
+
+.editModalInputs textarea,
+#createCardModal textarea {
+    resize: none;
 }
 
 .editModalInputs button:first-child,
@@ -424,23 +439,27 @@ hr {
     background-color: gray;
 }
 
-.modal_delete_options {
+#modal_delete {
     position: absolute;
-    margin: auto;
-    padding: 20px;
     top: 40%;
-    left: 0;
-    right: 0;
-    width: 300px;
+    left: 50%;
+    margin-right: -50%;
+    z-index: 10;
+    display: none;
     height: 100px;
-    background-color: #f5f6f8;
-    z-index: 100;
-    border-radius: 5px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    background: #eaebef;
 }
 
 #modal_delete h2 {
     text-align: center;
     font-size: 14px;
+}
+
+#buttons {
+    position: relative;
 }
 
 #delete_yes, #delete_no {
@@ -454,8 +473,8 @@ hr {
 }
 
 #delete_yes {
-    left: 30px;
-    bottom: 10px;
+    left: 15px;
+    top: 10px;
     background: #006cba;
     border: none;
     color: #fff;
@@ -470,8 +489,8 @@ hr {
 }
 
 #delete_no {
-    right: 30px;
-    bottom: 10px;
+    right: 15px;
+    top: 10px;
     background: #cb0b13;
     border: none;
     color: #ffffff;

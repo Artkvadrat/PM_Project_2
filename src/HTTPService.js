@@ -1,4 +1,5 @@
 import User from "./User";
+import emitter from './EventEmitter';
 
 const END_POINT = 'https://radiant-temple-07706.herokuapp.com';
 
@@ -17,8 +18,13 @@ export default class HTTPService {
 
         return fetch(url, options)
             .then((res) => {
-                if(res.status >= 200 && res.status < 300) return res.json();
-                else throw res
+                if([401,403].includes(res.status)) {
+                    User.clearLocalStorage();
+                    emitter.emit('unauthorised');
+                    throw new Error('Unauthorised');
+                }
+
+                return res.json();
             })
             .catch(console.log)
     }
