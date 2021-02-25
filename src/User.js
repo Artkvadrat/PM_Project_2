@@ -12,6 +12,10 @@ export default class User {
     }
 
     static set username(value) {
-        return window.localStorage.setItem('username', value)
+        window.localStorage.setItem('username', value)
+    }
+
+    static clearLocalStorage() {
+        window.localStorage.clear();
     }
 }
