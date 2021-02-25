@@ -6,6 +6,10 @@ body {
     height: 100vh;
 }
 
+input:focus, button:focus, textarea:focus {
+    outline: none;
+}
+
 .header {
     width: 100%;
     margin: 0 auto 20px;
@@ -28,7 +32,7 @@ body {
     margin: 0 auto;
 }
 
-#userName {
+#user-name {
     display: none;
     line-height: 44px;
 }
@@ -48,45 +52,52 @@ body {
     background: #006cba;
 }
 
-#loginButtonsContainer {
-    padding: 10px;
-    font-size: 20px;
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    height: 90vh;
+    background: #f5f6f8;
+    border-radius: 10px;
 }
 
-#loginButton,
-#registrationButton,
-#userName button {
-    text-decoration: none;
-    color: #fff;
-    background-color: #0787e7;
-    padding: 5px;
+.columns {
+    padding: 35px;
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 80vh;
+}
+
+.columns__column {
+    padding-bottom: 40px;
+
+    position: relative;
+}
+
+.add-card {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 30px;
+
     border-radius: 5px;
-}
+    border: none;
 
-#registrationButton,
-#userName button {
-    color: #006cba;
-    background-color: #ffffff;
-}
-
-#loginButton:hover {
-    background-color: #005493;
+    background-color: rgba(0, 0, 0, 0.22);
+    color: #f5f6f8;
+    font-size: 30px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-#registrationButton:hover,
-#userName button:hover {
-    cursor: pointer;
-    background-color: #005493;
-    color: white;
+.add-card:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
-#userName button {
-    border: 0;
-    margin-left: 10px;
-    font-size: 20px;
-    width: 80px;
-    outline: none;
+.columns__column h2 {
+    font-size: 15px;
+    color: #48474d;
 }
 
 .hide {
@@ -94,7 +105,7 @@ body {
 }
 
 #loginForm, #registerForm,
-.modalForm {
+.modal-form {
     padding: 20px;
     max-width: 400px;
     background: #eaebef;
@@ -123,34 +134,7 @@ body {
     border: none;
 }
 
-.close {
-    position: absolute;
-    right: 32px;
-    top: 20px;
-    width: 32px;
-    height: 32px;
-    opacity: 0.3;
-    cursor: pointer;
-}
-
-.close:before, .close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 20px;
-    width: 2px;
-    background-color: #333;
-}
-
-.close:before {
-    transform: rotate(45deg);
-}
-
-.close:after {
-    transform: rotate(-45deg);
-}
-
-.submitAuthButton {
+.btn-submit {
     display: block;
     width: 100%;
     height: 30px;
@@ -162,15 +146,9 @@ body {
     border-radius: 10px;
 }
 
-.submitAuthButton:hover {
+.btn-submit:hover {
     background: #006cba;
     color: #fff;
-}
-
-.submitAuthButton:hover {
-    background: #006cba;
-    color: #fff;
-    cursor: pointer;
 }
 
 hr {
@@ -180,18 +158,6 @@ hr {
     border-top: 2px solid #fff;
     margin: 1em 0;
     padding: 0;
-}
-
-#registration,
-#login {
-    cursor: default;
-}
-
-#registration span,
-#login span {
-    color: black;
-    cursor: pointer;
-    font-weight: 600;
 }
 
 #auth:before,
@@ -210,7 +176,7 @@ hr {
 }
 
 #loginForm a, #registerForm a,
-.modalForm .link {
+.modal-form .link {
     margin-top: 10px;
     text-decoration: none;
     color: #666;
@@ -219,33 +185,6 @@ hr {
     display: inline-block;
     opacity: 0.6;
     transition: opacity ease 0.5s;
-}
-
-.wrapper {
-    width: 1280px;
-    margin: 0 auto;
-    height: 90vh;
-    background: #f5f6f8;
-    border-radius: 10px;
-}
-
-.columns {
-    padding: 35px;
-    display: grid;
-    grid-gap: 35px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 80vh;
-}
-
-.columns__column {
-    padding-bottom: 40px;
-
-    position: relative;
-}
-
-.columns__column h2 {
-    font-size: 15px;
-    color: #48474d;
 }
 
 .cards_wrapper {
@@ -279,8 +218,7 @@ hr {
     padding: 15px;
     border-radius: 10px;
     background: #ffffff;
-    max-width: 250px;
-    word-wrap: break-word;
+    width: 100%;
     margin-bottom: 20px;
     box-shadow: 0 8px 4px -2px rgba(0, 0, 0, .2);
 }
@@ -316,14 +254,91 @@ hr {
     font-size: 24px;
     color: #232227;
     margin: 10px 0;
-    cursor: default;
 }
 
-.card p {
-    cursor: default;
+.hide {
+    display: none;
 }
 
-#editCardModal, #deleteCardModal {
+.btn-submit:hover {
+    background: #006cba;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+
+.close:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+#btn-right {
+    padding: 10px;
+    font-size: 20px;
+}
+
+#btn-login,
+#btn-reg,
+#user-name button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0787e7;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#btn-reg,
+#user-name button {
+    color: #006cba;
+    background-color: #ffffff;
+}
+
+#btn-login:hover {
+    background-color: #005493;
+    cursor: pointer;
+}
+
+#btn-reg:hover,
+#user-name button:hover {
+    cursor: pointer;
+    background-color: #005493;
+    color: white;
+}
+
+#user-name button {
+    border: 0;
+    margin-left: 10px;
+    font-size: 20px;
+    width: 80px;
+    outline: none;
+}
+
+#editModal, #modal_delete {
     display: none;
     position: fixed;
     top: 0;
@@ -333,7 +348,7 @@ hr {
     z-index: 10;
 }
 
-#addCardModal {
+#modal {
     position: fixed;
     top: 0;
     width: 100%;
@@ -443,7 +458,7 @@ hr {
     border-radius: 5px;
 }
 
-#deleteCardModal h2 {
+#modal_delete h2 {
     text-align: center;
     font-size: 14px;
 }
@@ -491,30 +506,5 @@ hr {
 }
 
 #delete_no:focus, #delete_yes:focus {
-    outline: none;
-}
-
-.addCard {
-    position: absolute;
-    bottom: 0;
-
-    width: 100%;
-    height: 30px;
-
-    border-radius: 5px;
-    border: none;
-
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #f5f6f8;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.addCard:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.addCard:focus {
     outline: none;
 }
