@@ -29,7 +29,7 @@ class AddCardModal {
             const title = document.getElementById('newCardTitle').value;
             const description = document.getElementById('newCardDescription').value;
             const button = document.getElementById('btn-submit');
-            button.disabled = !(title !== '' || description !== '');
+            button.disabled = !(title !== '' && description !== '');
         }
 
         document.getElementById('addCardForm').addEventListener('submit', closeClick);
