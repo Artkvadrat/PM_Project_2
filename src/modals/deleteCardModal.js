@@ -10,11 +10,10 @@ class DeleteCardModal {
     show(id, deleteCard, element){
         this.modal.style.display = 'block';
 
+        const modal_div = document.createElement('div');
+        modal_div.className = 'modal_delete_options';
         const question = document.createElement('h2');
         question.innerText = 'Are you sure you want to delete this task?';
-
-        const buttonsWrapper = document.createElement('div');
-        buttonsWrapper.id = 'buttons'
 
         const yesButton = document.createElement('button');
         const noButton = document.createElement('button');
@@ -23,11 +22,10 @@ class DeleteCardModal {
         noButton.id = 'delete_no';
         noButton.innerText = 'NO';
 
-        buttonsWrapper.appendChild(yesButton);
-        buttonsWrapper.appendChild(noButton);
-
-        this.modal.appendChild(question);
-        this.modal.appendChild(buttonsWrapper);
+        modal_div.appendChild(question);
+        modal_div.appendChild(yesButton);
+        modal_div.appendChild(noButton);
+        this.modal.appendChild(modal_div);
 
         const deleteHandler = () => {
             element.remove();

@@ -27,7 +27,7 @@ export default class CardsService {
 
     static async deleteCard(id) {
         return HTTPService.request({
-            path: `cards/${id}`,
+            path: `/cards/${id}`,
             method: 'DELETE'
         })
     }
