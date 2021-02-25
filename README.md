@@ -5,7 +5,7 @@ To start development:
 2. run 'npm i'
 3. run 'npm run dev'
 
-There might be some issues with displaying images, because parcel renames them when builds us project.
+There might be some issues with displaying images, because parcel renames them when builds up project.
 
 Project was created by:
 1. [Ksenia Karachun](https://github.com/Ksendel)  (Variant-1 branch)
