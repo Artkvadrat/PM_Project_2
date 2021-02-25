@@ -63,6 +63,7 @@ class ChangeCardModal {
             element.getElementsByTagName('p')[0].innerText = editDescriptionTextarea.value;
 
             this.close();
+
             return updateCard({
                 id,
                 title: editTitleInput.value,

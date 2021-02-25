@@ -7,7 +7,7 @@ class DeleteCardModal {
         this.close = this.close.bind(this);
     }
 
-    show(id, deleteCard){
+    show(id, deleteCard, element){
         this.modal.style.display = 'block';
 
         const question = document.createElement('h2');
@@ -30,19 +30,19 @@ class DeleteCardModal {
         this.modal.appendChild(buttonsWrapper);
 
         const deleteHandler = () => {
+            element.remove();
+
             this.close()
 
-            return deleteCard({
-                id
-            })
+            return deleteCard(id);
         }
 
         const noDeleteHandler = () => {
             this.close()
         }
 
-        yesButton.addEventListener('submit', deleteHandler);
-        noButton.addEventListener('submit', noDeleteHandler);
+        yesButton.addEventListener('click', deleteHandler);
+        noButton.addEventListener('click', noDeleteHandler);
     }
 
     close(){

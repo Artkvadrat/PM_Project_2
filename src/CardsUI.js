@@ -91,13 +91,13 @@ class CardsUI {
         const showChangeModal = (e) => {
             this.getOneCard(id).then((data) => {
                 const {title, description} = data;
-                ChangeCardModal.show(id, title, description, this.updateCard, e.path[2])
+                ChangeCardModal.show(id, title, description, this.updateCard, e.path[2]);
             });
 
         }
 
-        const showDeleteModal = async () => {
-            await DeleteCardModal.show(id, this.deleteCard);
+        const showDeleteModal = (e) => {
+            DeleteCardModal.show(id, this.deleteCard, e.path[2]);
         }
 
         editButton.addEventListener('click', showChangeModal);
