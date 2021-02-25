@@ -84,7 +84,7 @@ input:focus, button:focus, textarea:focus {
     border-radius: 5px;
     border: none;
 
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.22);
     color: #f5f6f8;
     font-size: 30px;
     font-weight: bold;
