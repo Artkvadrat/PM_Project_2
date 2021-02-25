@@ -6,6 +6,10 @@ body {
     height: 100vh;
 }
 
+input:focus, button:focus, textarea:focus {
+    outline: none;
+}
+
 .header {
     width: 100%;
     margin: 0 auto 20px;
@@ -89,10 +93,6 @@ body {
 
 .add-card:hover {
     background-color: rgba(0, 0, 0, 0.2);
-}
-
-.add-card:focus {
-    outline: none;
 }
 
 .columns__column h2 {
@@ -241,10 +241,6 @@ hr {
     background: #fff;
 }
 
-.card_delete:focus, .card_edit:focus {
-    outline: none;
-}
-
 .card_delete img, .card_edit img {
     width: 16px;
     height: 16px;
@@ -268,8 +264,8 @@ hr {
 
 .close {
     position: absolute;
-    right: 32px;
-    top: 20px;
+    right: 10px;
+    top: 5px;
     width: 32px;
     height: 32px;
     opacity: 0.3;
@@ -503,8 +499,4 @@ hr {
 
 #delete_no:active {
     box-shadow: inset 1px 1px 10px -1px
-}
-
-#delete_no:focus, #delete_yes:focus {
-    outline: none;
 }
