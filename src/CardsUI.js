@@ -5,7 +5,6 @@ import ChangeCardModal from "./modals/changeCardModal";
 import addCardModal from "./modals/addCardModal";
 import DeleteCardModal from "./modals/deleteCardModal";
 
-//array for cleaning up columns after logging out;
 let statuses = [];
 
 class CardsUI {
@@ -13,14 +12,13 @@ class CardsUI {
     constructor() {
         this.cardsContainer = document.getElementsByClassName('wrapper')[0];
 
-        this.btn = document.querySelectorAll('.addCard')
+        this.addCardButton = document.querySelectorAll('.add-card')
 
         this.init = this.init.bind(this);
         this.registerListeners = this.registerListeners.bind(this);
         this.addCard = this.addCard.bind(this);
         this.getCards = this.getCards.bind(this);
         this.createCard = this.createCard.bind(this);
-        this.clearColumns = this.clearColumns.bind(this);
 
         this.btnAddClick = this.btnAddClick.bind(this)
     }
@@ -28,11 +26,15 @@ class CardsUI {
     addCard(section, e) {
         e.preventDefault();
 
+        console.log(" Title " + e.target.elements.newCardTitle.value)
         return CardsService.createCard({
             title: e.target.elements.newCardTitle.value,
             status: section,
             description: e.target.elements.newCardDescription.value
         })
+            .then(res => {
+                return res
+            })
             .then((data) => {
                 this.createCard(data);
             })
@@ -78,14 +80,12 @@ class CardsUI {
         cardElement.append(editButton);
 
         const cardTitle = document.createElement('h3');
-
         cardTitle.innerText = title;
-
         cardElement.append(cardTitle);
 
         if (description) {
             const cardDescription = document.createElement('p');
-            cardDescription.innerText = description;
+            cardDescription.innerHTML = description;
             cardElement.append(cardDescription);
         }
 
@@ -121,7 +121,7 @@ class CardsUI {
 
     btnAddClick(e) {
         e.preventDefault();
-        const cardModal = document.getElementById('addCardModal');
+        const cardModal = document.getElementById('addNewCardModal');
         const section = e.target.getAttribute("data-attribute")
         addCardModal.drawCardModal(cardModal)
         const cardModalForm = document.getElementById('addCardForm'); //rewrite id to cardModalForm
@@ -130,8 +130,8 @@ class CardsUI {
 
     clearColumns() {
         statuses.map((item) => {
-            document.getElementById(item).innerHTML = '';
-        })
+            document.getElementById(`${item}`).innerHTML = '';
+        });
     }
 
     registerListeners() {
@@ -145,7 +145,7 @@ class CardsUI {
             this.clearColumns();
         });
 
-        this.btn.forEach(element => element.addEventListener('click', this.btnAddClick))
+        this.addCardButton.forEach(element => element.addEventListener('click', this.btnAddClick))
     }
 }
 

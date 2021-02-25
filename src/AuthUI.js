@@ -18,9 +18,9 @@ class AuthUI {
         this.registration = document.getElementById('registration');
         this.login = document.getElementById('login');
 
-        this.btnRight = document.getElementById('loginButtonsContainer')
+        this.btnRight = document.getElementById('loggingButtons')
         this.loginBtn = document.getElementById('loginButton')
-        this.regBtn = document.getElementById('registrationButton')
+        this.regBtn = document.getElementById('registerButton')
 
         this.userName = document.getElementById('userName')
 
@@ -53,13 +53,6 @@ class AuthUI {
         })
     }
 
-    loginClick(e) {
-        e.preventDefault()
-        this.auth.style.cssText = 'display: block'
-        this.registerForm.classList.add('hide')
-        this.loginForm.classList.remove('hide')
-    }
-
     registerFormSubmit(e) {
         e.preventDefault();
         AuthService.register({
@@ -75,6 +68,14 @@ class AuthUI {
         this.loginForm.classList.add('hide');
         this.registerForm.classList.remove('hide')
     }
+
+    loginClick(e) {
+        e.preventDefault()
+        this.auth.style.cssText = 'display: block'
+        this.registerForm.classList.add('hide')
+        this.loginForm.classList.remove('hide')
+    }
+
 
     logout() {
         User.clearLocalStorage();

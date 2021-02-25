@@ -59,7 +59,6 @@ class ChangeCardModal {
 
         const changeHandler = (e) => {
             e.preventDefault();
-
             element.getElementsByTagName('h3')[0].innerText = editTitleInput.value;
             element.getElementsByTagName('p')[0].innerText = editDescriptionTextarea.value;
 
