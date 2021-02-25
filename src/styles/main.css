@@ -162,6 +162,16 @@ hr {
     transition: opacity ease 0.5s;
 }
 
+.modal-form .link {
+    cursor: default;
+}
+
+.modal-form .link span {
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .wrapper {
     width: 1280px;
     margin: 0 auto;
