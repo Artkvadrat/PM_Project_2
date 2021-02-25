@@ -33,7 +33,9 @@ class CardsUI {
                 console.log("Response " + JSON.stringify(res))
                 return res
             })
-            .then(this.getCards)
+            .then((data) => {
+                this.createCard(data);
+            })
             .catch(console.log)
     }
 
