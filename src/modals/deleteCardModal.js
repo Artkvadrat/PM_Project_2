@@ -13,7 +13,7 @@ class DeleteCardModal {
         const modal_div = document.createElement('div');
         modal_div.className = 'modal_delete_options';
         const question = document.createElement('h2');
-        question.innerText = 'Are you sure you want to delete this task?';
+        question.innerText = 'Are you sure you want to delete this card?';
 
         const yesButton = document.createElement('button');
         const noButton = document.createElement('button');
