@@ -29,6 +29,7 @@ class ChangeCardModal {
         const editTitleInput = document.createElement('input');
         editTitleInput.type = 'text';
         editTitleInput.id = 'editTitleInput';
+        editTitleInput.maxLength = 40;
         editTitleInput.value = title;
         editModalForm.append(editTitleInput);
 
@@ -82,18 +83,6 @@ class ChangeCardModal {
         editModalForm.addEventListener('submit', changeHandler);
         editTitleInput.addEventListener('input', enableSubmitButtonOnChange);
         editDescriptionTextarea.addEventListener('input', enableSubmitButtonOnChange);
-
-
-        // this.modal.innerHTML = `
-        // <div class="editModalInputs">
-        //     <form>
-        //         <label for="editTitleInput">Title</label>
-        //         <input id="editTitleInput" type="text">
-        //         <label for="editDescriptionTextarea">Description</label>
-        //         <textarea name="title" id="editDescriptionTextarea" cols="30" rows="10" maxlength="400"></textarea>
-        //         <button type="submit">Submit</button>
-        //     </form>
-        // </div>`;
     }
 
     close() {

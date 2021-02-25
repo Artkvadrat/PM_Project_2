@@ -122,10 +122,10 @@ class CardsUI {
     btnAddClick(e) {
         e.preventDefault();
         const cardModal = document.getElementById('addNewCardModal');
-        const section = e.target.getAttribute("data-attribute")
-        addCardModal.drawCardModal(cardModal)
-        const cardModalForm = document.getElementById('addCardForm'); //rewrite id to cardModalForm
-        cardModalForm.addEventListener("submit", e => this.addCard(section, e))
+        const section = e.target.getAttribute("data-attribute");
+        addCardModal.drawCardModal(cardModal);
+        const cardModalForm = document.getElementById('addCardForm');
+        cardModalForm.addEventListener("submit", e => this.addCard(section, e));
     }
 
     clearColumns() {
@@ -145,7 +145,7 @@ class CardsUI {
             this.clearColumns();
         });
 
-        this.addCardButton.forEach(element => element.addEventListener('click', this.btnAddClick))
+        this.addCardButton.forEach(element => element.addEventListener('click', this.btnAddClick));
     }
 }
 
