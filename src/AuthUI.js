@@ -32,7 +32,7 @@ class AuthUI {
     render() {
         console.log("User.jwtToken  " + User.jwtToken)
         console.log('name' + User.username)
-        if (User.jwtToken && User.username) {
+        if (User.jwtToken) {
             this.registerForm.classList.add('hide');
             this.loginForm.classList.add('hide');
             this.auth.style.display = 'none';
