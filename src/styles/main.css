@@ -91,6 +91,10 @@ body {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.add-card:focus {
+    outline: none;
+}
+
 .columns__column h2 {
     font-size: 15px;
     color: #48474d;
@@ -322,7 +326,7 @@ hr {
     color: white;
 }
 
-#editModal {
+#editModal, #modal_delete {
     display: none;
     position: fixed;
     top: 0;
@@ -331,6 +335,7 @@ hr {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
 }
+
 #modal {
     position: fixed;
     top: 0;
@@ -419,27 +424,23 @@ hr {
     background-color: gray;
 }
 
-#modal_delete {
+.modal_delete_options {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    margin-right: -50%;
-    z-index: 10;
-    display: none;
-    height: 100px;
-    width: 300px;
-    border-radius: 10px;
+    margin: auto;
     padding: 20px;
-    background: #eaebef;
+    top: 40%;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 100px;
+    background-color: #f5f6f8;
+    z-index: 100;
+    border-radius: 5px;
 }
 
 #modal_delete h2 {
     text-align: center;
     font-size: 14px;
-}
-
-#buttons {
-    position: relative;
 }
 
 #delete_yes, #delete_no {
@@ -453,8 +454,8 @@ hr {
 }
 
 #delete_yes {
-    left: 15px;
-    top: 10px;
+    left: 30px;
+    bottom: 10px;
     background: #006cba;
     border: none;
     color: #fff;
@@ -469,8 +470,8 @@ hr {
 }
 
 #delete_no {
-    right: 15px;
-    top: 10px;
+    right: 30px;
+    bottom: 10px;
     background: #cb0b13;
     border: none;
     color: #ffffff;
