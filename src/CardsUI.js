@@ -5,6 +5,8 @@ import ChangeCardModal from "./modals/changeCardModal";
 import addCardModal from "./modals/addCardModal";
 import DeleteCardModal from "./modals/deleteCardModal";
 
+let statuses = [];
+
 class CardsUI {
 
     constructor() {
@@ -17,6 +19,7 @@ class CardsUI {
         this.addCard = this.addCard.bind(this);
         this.getCards = this.getCards.bind(this);
         this.createCard = this.createCard.bind(this);
+        this.clearColumns = this.clearColumns.bind(this);
 
         this.btnAddClick = this.btnAddClick.bind(this)
     }
@@ -24,15 +27,11 @@ class CardsUI {
     addCard(section, e) {
         e.preventDefault();
 
-        console.log(" Title " + e.target.elements.newCardTitle.value)
         return CardsService.createCard({
             title: e.target.elements.newCardTitle.value,
             status: section,
             description: e.target.elements.newCardDescription.value
         })
-            .then(res => {
-                return res
-            })
             .then((data) => {
                 this.createCard(data);
             })
@@ -103,6 +102,10 @@ class CardsUI {
         deleteButton.addEventListener('click', showDeleteModal);
 
         document.getElementById(`${status}`).append(cardElement);
+
+        if (statuses.indexOf(status) === -1) {
+            statuses.push(status);
+        }
     }
 
     init() {
@@ -119,7 +122,10 @@ class CardsUI {
             this.getCards();
         });
 
-        emitter.subscribe('unauthorised', this.init);
+        emitter.subscribe('unauthorised', () => {
+            this.init();
+            this.clearColumns();
+        });
 
         this.btn.forEach(element => element.addEventListener('click', this.btnAddClick))
     }
@@ -131,6 +137,12 @@ class CardsUI {
         addCardModal.drawCardModal(cardModal)
         const cardModalForm = document.getElementById('addCardForm'); //rewrite id to cardModalForm
         cardModalForm.addEventListener("submit", e => this.addCard(section, e))
+    }
+
+    clearColumns() {
+        statuses.map((item) => {
+            document.getElementById(item).innerHTML = '';
+        })
     }
 
 }
