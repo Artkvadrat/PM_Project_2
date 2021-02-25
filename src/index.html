@@ -50,6 +50,19 @@
 <div id="editModal">
 
 </div>
+<div id="modal" class="hide">
+    <div id="createCardModal">
+        <form id="addCardForm">
+            <a class="close" title="close"></a>
+            <label for="newCardTitle">Title</label>
+            <input id="newCardTitle" type="text">
+            <label for="newCardDescription">Description</label>
+            <textarea name="title" id="newCardDescription" cols="30" rows="10" maxlength="400"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
 
 <div class="wrapper">
     <main class="columns">
@@ -57,67 +70,23 @@
             <h2>To Do</h2>
             <div id="to_do" class="cards_wrapper">
             </div>
-            <form id="addCard">
-                <input type="text" id="cardTitle">
-                <input type="text" id="cardDescription">
-                <button type="submit">submit</button>
-            </form>
+            <button class="add-card" id="btn-add" data-attribute="to_do">+</button>
         </section>
 
         <section class="columns__column">
             <h2>In Progress</h2>
             <div id="in_progress" class="cards_wrapper">
-                <div class="card">
-                    <button class="card_delete"><img src="images/delete.png" alt="Delete button"></button>
-                    <button class="card_edit"><img src="images/edit.png" alt="Edit button"></button>
-                    <h3>Testing testing testing testing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
-                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
-                        ratione! Fugit iure, omnis!</p>
-                </div>
-                <div class="card">
-                    <h3>Testing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
-                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
-                        ratione! Fugit iure, omnis!</p>
-                </div>
-                <div class="card">
-                    <h3>Testing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
-                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
-                        ratione! Fugit iure, omnis!</p>
-                </div>
+
             </div>
+            <button class="add-card" id="btn-progress" data-attribute="in_progress">+</button>
         </section>
 
         <section class="columns__column">
             <h2>Testing</h2>
             <div id="testing" class="cards_wrapper">
-                <div class="card">
-                    <h3>Testing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
-                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
-                        ratione! Fugit iure, omnis!</p>
-                </div>
-                <div class="card">
-                    <h3>Testing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
-                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
-                        ratione! Fugit iure, omnis!</p>
-                </div>
-                <div class="card">
-                    <h3>Testing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
-                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
-                        ratione! Fugit iure, omnis!</p>
-                </div>
-                <div class="card">
-                    <h3>Testing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum ipsa officia. Animi
-                        aut harum iusto laboriosam quis velit voluptatibus. Assumenda cumque debitis inventore odit
-                        ratione! Fugit iure, omnis!</p>
-                </div>
+
             </div>
+            <button class="add-card" id="btn-testing" data-attribute="testing">+</button>
         </section>
 
         <section class="columns__column">
@@ -130,6 +99,7 @@
                         ratione! Fugit iure, omnis!</p>
                 </div>
             </div>
+            <button class="add-card" id="btn-done" data-attribute="done">+</button>
         </section>
     </main>
 </div>

@@ -7,9 +7,10 @@ class CardsUI {
 
     constructor() {
         this.cardsContainer = document.getElementsByClassName('wrapper')[0];
-        this.addCardForm = document.getElementById('addCard');
-        this.cardTitleInput = document.getElementById('cardTitle');
-        this.cardDescriptionInput = document.getElementById('cardDescription');
+        this.addCardForm = document.getElementById('addCardForm');
+
+        this.btn = document.querySelectorAll('.add-card')
+        this.closeBtn = document.getElementsByClassName('close')[2]
 
         this.init = this.init.bind(this);
         this.registerListeners = this.registerListeners.bind(this);
@@ -21,17 +22,23 @@ class CardsUI {
     addCard(e) {
         e.preventDefault();
 
+        console.log(" Title " + e.target.elements.newCardTitle.value)
         return CardsService.createCard({
-            title: this.cardTitleInput.value,
-            status: 'to_do',
-            description: this.cardDescriptionInput
+            title: e.target.elements.newCardTitle.value,
+            status: e.target.getAttribute('data-attribute'),
+            description: e.target.elements.newCardDescription.value
         })
+            .then(res => {
+                console.log("Response " + JSON.stringify(res))
+                return res
+            })
             .then(this.getCards)
             .catch(console.log)
     }
 
     getCards() {
         return CardsService.getCards().then((cards) => {
+            console.log("cards " + JSON.stringify(cards))
             cards.forEach(this.createCard);
         });
     }
@@ -106,7 +113,30 @@ class CardsUI {
         });
 
         this.addCardForm.addEventListener('submit', this.addCard);
+        this.btn.forEach(element => element.addEventListener('click', this.btnAddClick))
+        this.closeBtn.addEventListener('click', this.closeClick)
     }
+
+    // showCardModal(section) {
+    //
+    // }
+
+    btnAddClick(e) {
+        e.preventDefault();
+
+        const attr = e.target.getAttribute("data-attribute")
+        document.getElementById('addCardForm').setAttribute("data-attribute", attr)
+
+        this.createCardModal = document.getElementById('modal');
+        this.createCardModal.classList.remove('hide');
+    }
+
+    closeClick(e) {
+        e.preventDefault();
+        this.createCardModal = document.getElementById('modal');
+        this.createCardModal.classList.add('hide');
+    }
+
 }
 
 export default new CardsUI();
