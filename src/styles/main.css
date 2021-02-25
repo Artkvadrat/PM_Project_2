@@ -48,56 +48,45 @@ body {
     background: #006cba;
 }
 
-.wrapper {
-    width: 1280px;
-    margin: 0 auto;
-    height: 90vh;
-    background: #f5f6f8;
-    border-radius: 10px;
+#loginButtonsContainer {
+    padding: 10px;
+    font-size: 20px;
 }
 
-.columns {
-    padding: 35px;
-    display: grid;
-    grid-gap: 35px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 80vh;
-}
-
-.columns__column {
-    padding-bottom: 40px;
-
-    position: relative;
-}
-
-.add-card {
-    position: absolute;
-    bottom: 0;
-
-    width: 100%;
-    height: 30px;
-
+#loginButton,
+#registrationButton,
+#user-name button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0787e7;
+    padding: 5px;
     border-radius: 5px;
-    border: none;
+}
 
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #f5f6f8;
-    font-size: 30px;
-    font-weight: bold;
+#registrationButton,
+#user-name button {
+    color: #006cba;
+    background-color: #ffffff;
+}
+
+#loginButton:hover {
+    background-color: #005493;
     cursor: pointer;
 }
 
-.add-card:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+#registrationButton:hover,
+#user-name button:hover {
+    cursor: pointer;
+    background-color: #005493;
+    color: white;
 }
 
-.add-card:focus {
+#user-name button {
+    border: 0;
+    margin-left: 10px;
+    font-size: 20px;
+    width: 80px;
     outline: none;
-}
-
-.columns__column h2 {
-    font-size: 15px;
-    color: #48474d;
 }
 
 .hide {
@@ -134,7 +123,34 @@ body {
     border: none;
 }
 
-.btn-submit {
+.close {
+    position: absolute;
+    right: 32px;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.submitAuthButton {
     display: block;
     width: 100%;
     height: 30px;
@@ -146,9 +162,15 @@ body {
     border-radius: 10px;
 }
 
-.btn-submit:hover {
+.submitAuthButton:hover {
     background: #006cba;
     color: #fff;
+}
+
+.submitAuthButton:hover {
+    background: #006cba;
+    color: #fff;
+    cursor: pointer;
 }
 
 hr {
@@ -158,6 +180,18 @@ hr {
     border-top: 2px solid #fff;
     margin: 1em 0;
     padding: 0;
+}
+
+#registration,
+#login {
+    cursor: default;
+}
+
+#registration span,
+#login span {
+    color: black;
+    cursor: pointer;
+    font-weight: 600;
 }
 
 #auth:before,
@@ -185,6 +219,33 @@ hr {
     display: inline-block;
     opacity: 0.6;
     transition: opacity ease 0.5s;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    height: 90vh;
+    background: #f5f6f8;
+    border-radius: 10px;
+}
+
+.columns {
+    padding: 35px;
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 80vh;
+}
+
+.columns__column {
+    padding-bottom: 40px;
+
+    position: relative;
+}
+
+.columns__column h2 {
+    font-size: 15px;
+    color: #48474d;
 }
 
 .cards_wrapper {
@@ -218,7 +279,8 @@ hr {
     padding: 15px;
     border-radius: 10px;
     background: #ffffff;
-    width: 100%;
+    max-width: 250px;
+    word-wrap: break-word;
     margin-bottom: 20px;
     box-shadow: 0 8px 4px -2px rgba(0, 0, 0, .2);
 }
@@ -254,91 +316,14 @@ hr {
     font-size: 24px;
     color: #232227;
     margin: 10px 0;
+    cursor: default;
 }
 
-.hide {
-    display: none;
+.card p {
+    cursor: default;
 }
 
-.btn-submit:hover {
-    background: #006cba;
-    color: #fff;
-    cursor: pointer;
-}
-
-.close {
-    position: absolute;
-    right: 32px;
-    top: 20px;
-    width: 32px;
-    height: 32px;
-    opacity: 0.3;
-}
-
-.close:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
-.close:before, .close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 20px;
-    width: 2px;
-    background-color: #333;
-}
-
-.close:before {
-    transform: rotate(45deg);
-}
-
-.close:after {
-    transform: rotate(-45deg);
-}
-
-#btn-right {
-    padding: 10px;
-    font-size: 20px;
-}
-
-#btn-login,
-#btn-reg,
-#user-name button {
-    text-decoration: none;
-    color: #fff;
-    background-color: #0787e7;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-#btn-reg,
-#user-name button {
-    color: #006cba;
-    background-color: #ffffff;
-}
-
-#btn-login:hover {
-    background-color: #005493;
-    cursor: pointer;
-}
-
-#btn-reg:hover,
-#user-name button:hover {
-    cursor: pointer;
-    background-color: #005493;
-    color: white;
-}
-
-#user-name button {
-    border: 0;
-    margin-left: 10px;
-    font-size: 20px;
-    width: 80px;
-    outline: none;
-}
-
-#editModal, #modal_delete {
+#editCardModal, #deleteCardModal {
     display: none;
     position: fixed;
     top: 0;
@@ -348,7 +333,7 @@ hr {
     z-index: 10;
 }
 
-#modal {
+#addCardModal {
     position: fixed;
     top: 0;
     width: 100%;
@@ -458,7 +443,7 @@ hr {
     border-radius: 5px;
 }
 
-#modal_delete h2 {
+#deleteCardModal h2 {
     text-align: center;
     font-size: 14px;
 }
@@ -506,5 +491,30 @@ hr {
 }
 
 #delete_no:focus, #delete_yes:focus {
+    outline: none;
+}
+
+.add-card {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 30px;
+
+    border-radius: 5px;
+    border: none;
+
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #f5f6f8;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-card:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.add-card:focus {
     outline: none;
 }

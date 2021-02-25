@@ -5,6 +5,7 @@ import ChangeCardModal from "./modals/changeCardModal";
 import addCardModal from "./modals/addCardModal";
 import DeleteCardModal from "./modals/deleteCardModal";
 
+//array for cleaning up columns after logging out;
 let statuses = [];
 
 class CardsUI {
@@ -77,12 +78,14 @@ class CardsUI {
         cardElement.append(editButton);
 
         const cardTitle = document.createElement('h3');
+
         cardTitle.innerText = title;
+
         cardElement.append(cardTitle);
 
         if (description) {
             const cardDescription = document.createElement('p');
-            cardDescription.innerHTML = description;
+            cardDescription.innerText = description;
             cardElement.append(cardDescription);
         }
 
@@ -116,6 +119,21 @@ class CardsUI {
         }
     }
 
+    btnAddClick(e) {
+        e.preventDefault();
+        const cardModal = document.getElementById('addCardModal');
+        const section = e.target.getAttribute("data-attribute")
+        addCardModal.drawCardModal(cardModal)
+        const cardModalForm = document.getElementById('addCardForm'); //rewrite id to cardModalForm
+        cardModalForm.addEventListener("submit", e => this.addCard(section, e))
+    }
+
+    clearColumns() {
+        statuses.map((item) => {
+            document.getElementById(item).innerHTML = '';
+        })
+    }
+
     registerListeners() {
         emitter.subscribe('loggedIn', () => {
             this.init();
@@ -129,22 +147,6 @@ class CardsUI {
 
         this.btn.forEach(element => element.addEventListener('click', this.btnAddClick))
     }
-
-    btnAddClick(e) {
-        e.preventDefault();
-        const cardModal = document.getElementById('modal');
-        const section = e.target.getAttribute("data-attribute")
-        addCardModal.drawCardModal(cardModal)
-        const cardModalForm = document.getElementById('addCardForm'); //rewrite id to cardModalForm
-        cardModalForm.addEventListener("submit", e => this.addCard(section, e))
-    }
-
-    clearColumns() {
-        statuses.map((item) => {
-            document.getElementById(item).innerHTML = '';
-        })
-    }
-
 }
 
 export default new CardsUI();

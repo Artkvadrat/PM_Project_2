@@ -18,9 +18,9 @@ class AuthUI {
         this.registration = document.getElementById('registration');
         this.login = document.getElementById('login');
 
-        this.btnRight = document.getElementById('btn-right')
-        this.loginBtn = document.getElementById('btn-login')
-        this.regBtn = document.getElementById('btn-reg')
+        this.btnRight = document.getElementById('loginButtonsContainer')
+        this.loginBtn = document.getElementById('loginButton')
+        this.regBtn = document.getElementById('registrationButton')
 
         this.userName = document.getElementById('user-name')
 
@@ -53,6 +53,13 @@ class AuthUI {
         })
     }
 
+    loginClick(e) {
+        e.preventDefault()
+        this.auth.style.cssText = 'display: block'
+        this.registerForm.classList.add('hide')
+        this.loginForm.classList.remove('hide')
+    }
+
     registerFormSubmit(e) {
         e.preventDefault();
         AuthService.register({
@@ -60,6 +67,30 @@ class AuthUI {
             registerEmail: this.registerEmail.value,
             registerPassword: this.registerPassword.value
         })
+    }
+
+    registrationClick(e) {
+        e.preventDefault();
+        this.auth.style.cssText = 'display: block'
+        this.loginForm.classList.add('hide');
+        this.registerForm.classList.remove('hide')
+    }
+
+    logout() {
+        User.clearLocalStorage();
+        emitter.emit('unauthorised');
+    }
+
+    showName() {
+        if (User.username) {
+            this.btnRight.classList.add('hide')
+            this.userName.style.display = 'flex';
+            this.userName.innerHTML = `<p class="name">Hello, ${User.username}</p><button id="logoutButton">Logout</button>`;
+            document.getElementById('logoutButton').addEventListener('click', this.logout);
+        } else {
+            this.btnRight.classList.remove('hide');
+            this.userName.style.display = 'none';
+        }
     }
 
     registerListeners() {
@@ -76,38 +107,6 @@ class AuthUI {
 
         if (User.jwtToken) {
             emitter.emit('loggedIn');
-        }
-    }
-
-    registrationClick(e) {
-        e.preventDefault();
-        this.auth.style.cssText = 'display: block'
-        this.loginForm.classList.add('hide');
-        this.registerForm.classList.remove('hide')
-    }
-
-    loginClick(e) {
-        e.preventDefault()
-        this.auth.style.cssText = 'display: block'
-        this.registerForm.classList.add('hide')
-        this.loginForm.classList.remove('hide')
-    }
-
-
-    logout() {
-        User.clearLocalStorage();
-        emitter.emit('unauthorised');
-    }
-
-    showName() {
-        if (User.username) {
-            this.btnRight.classList.add('hide')
-            this.userName.style.display = 'flex';
-            this.userName.innerHTML = `<p class="name">Hello, ${User.username}</p><button id="logoutButton">Logout</button>`;
-            document.getElementById('logoutButton').addEventListener('click', this.logout);
-        } else {
-            this.btnRight.classList.remove('hide');
-            this.userName.style.display = 'none';
         }
     }
 }

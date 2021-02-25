@@ -3,13 +3,13 @@ class AddCardModal {
         this.drawCardModal = this.drawCardModal.bind(this)
     }
 
-    drawCardModal(container, title, description) {
+    drawCardModal(container) {
         container.innerHTML =
             `<div id="createCardModal">
                 <form id="addCardForm">
                     <a class="close" title="close"></a>
                     <label for="newCardTitle">Title</label>
-                    <input id="newCardTitle" type="text">
+                    <input id="newCardTitle" type="text" maxlength="50">
                     <label for="newCardDescription">Description</label>
                     <textarea name="title" id="newCardDescription" cols="30" rows="10" maxlength="400"></textarea>
                     <button type="submit" id="btn-submit" disabled>Submit</button>
@@ -19,7 +19,7 @@ class AddCardModal {
 
         const closeClick = e => {
             e.preventDefault();
-            this.createCardModal = document.getElementById('modal');
+            this.createCardModal = document.getElementById('addCardModal');
             this.createCardModal.classList.add('hide');
             this.createCardModal.innerHTML = '';
         }
@@ -28,8 +28,8 @@ class AddCardModal {
             e.preventDefault();
             const title = document.getElementById('newCardTitle').value
             const description = document.getElementById('newCardDescription').value
-            const button = document.getElementById('btn-submit')
-            button.disabled = !(title !== '' || description !== '');
+            const button = document.getElementById('btn-submit');
+            button.disabled = !(title !== '' && description !== '');
         }
 
         document.getElementById('addCardForm').addEventListener('submit', closeClick)

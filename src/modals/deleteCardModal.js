@@ -1,7 +1,7 @@
 class DeleteCardModal {
 
     constructor() {
-        this.modal = document.getElementById('modal_delete');
+        this.modal = document.getElementById('deleteCardModal');
 
         this.show = this.show.bind(this);
         this.close = this.close.bind(this);

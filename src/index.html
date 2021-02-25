@@ -14,9 +14,9 @@
 <div class="header">
     <nav class="navbar">
         <a href="" class="logo">Cardkeo</a>
-        <div id="btn-right">
-            <a id="btn-login">Log in</a>
-            <a id="btn-reg">Sign up</a>
+        <div id="loginButtonsContainer">
+            <a id="loginButton">Log in</a>
+            <a id="registrationButton">Sign up</a>
         </div>
         <div id="user-name"></div>
     </nav>
@@ -29,9 +29,9 @@
         <hr>
         <input type="text" id="loginUsername" placeholder="username">
         <input type="password" id="loginPassword" placeholder="password">
-        <button type="submit" class="btn-submit">Login</button>
+        <button type="submit" class="submitAuthButton">Login</button>
         <hr>
-        <a href="" id="registration" class="link">Not a member yet? Register here</a>
+        <p id="registration" class="link">Not a member yet? <span>Register here</span></p>
     </form>
 
     <form id="registerForm" class="modal-form hide">
@@ -41,23 +41,22 @@
         <input type="text" id="registerUsername" placeholder="username">
         <input type="text" id="registerEmail" placeholder="email">
         <input type="password" id="registerPassword" placeholder="password">
-        <button type="submit" class="btn-submit">Register</button>
+        <button type="submit" class="submitAuthButton">Register</button>
         <hr>
-        <a href="" id="login" class="link">Already a member? Login here</a>
+        <p id="login" class="link">Already a member? <span>Login here</span></p>
     </form>
 </div>
 
 
-<div id="editModal">
-
-</div>
-<div id="modal" class="hide">
+<div id="editCardModal">
 
 </div>
 
+<div id="addCardModal" class="hide">
 
+</div>
 
-<div id='modal_delete'>
+<div id='deleteCardModal'>
 
 </div>
 
@@ -98,6 +97,6 @@
 </div>
 
 <script src="index.js" type="text/javascript"></script>
-<script src="modalWindow.js" type="text/javascript"></script>
+<script src="modals/loggingModal.js" type="text/javascript"></script>
 </body>
 </html>

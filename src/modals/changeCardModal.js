@@ -1,7 +1,7 @@
 class ChangeCardModal {
 
     constructor() {
-        this.modal = document.getElementById('editModal');
+        this.modal = document.getElementById('editCardModal');
 
         this.show = this.show.bind(this);
         this.close = this.close.bind(this);
@@ -59,6 +59,7 @@ class ChangeCardModal {
 
         const changeHandler = (e) => {
             e.preventDefault();
+
             element.getElementsByTagName('h3')[0].innerText = editTitleInput.value;
             element.getElementsByTagName('p')[0].innerText = editDescriptionTextarea.value;
 
