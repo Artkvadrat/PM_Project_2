@@ -13,7 +13,7 @@ class CardsUI {
     constructor() {
         this.cardsContainer = document.getElementsByClassName('wrapper')[0];
 
-        this.btn = document.querySelectorAll('.add-card')
+        this.btn = document.querySelectorAll('.addCard')
 
         this.init = this.init.bind(this);
         this.registerListeners = this.registerListeners.bind(this);

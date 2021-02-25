@@ -28,7 +28,7 @@ body {
     margin: 0 auto;
 }
 
-#user-name {
+#userName {
     display: none;
     line-height: 44px;
 }
@@ -55,7 +55,7 @@ body {
 
 #loginButton,
 #registrationButton,
-#user-name button {
+#userName button {
     text-decoration: none;
     color: #fff;
     background-color: #0787e7;
@@ -64,7 +64,7 @@ body {
 }
 
 #registrationButton,
-#user-name button {
+#userName button {
     color: #006cba;
     background-color: #ffffff;
 }
@@ -75,13 +75,13 @@ body {
 }
 
 #registrationButton:hover,
-#user-name button:hover {
+#userName button:hover {
     cursor: pointer;
     background-color: #005493;
     color: white;
 }
 
-#user-name button {
+#userName button {
     border: 0;
     margin-left: 10px;
     font-size: 20px;
@@ -94,7 +94,7 @@ body {
 }
 
 #loginForm, #registerForm,
-.modal-form {
+.modalForm {
     padding: 20px;
     max-width: 400px;
     background: #eaebef;
@@ -210,7 +210,7 @@ hr {
 }
 
 #loginForm a, #registerForm a,
-.modal-form .link {
+.modalForm .link {
     margin-top: 10px;
     text-decoration: none;
     color: #666;
@@ -494,7 +494,7 @@ hr {
     outline: none;
 }
 
-.add-card {
+.addCard {
     position: absolute;
     bottom: 0;
 
@@ -511,10 +511,10 @@ hr {
     cursor: pointer;
 }
 
-.add-card:hover {
+.addCard:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.add-card:focus {
+.addCard:focus {
     outline: none;
 }

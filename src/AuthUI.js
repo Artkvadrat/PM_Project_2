@@ -22,7 +22,7 @@ class AuthUI {
         this.loginBtn = document.getElementById('loginButton')
         this.regBtn = document.getElementById('registrationButton')
 
-        this.userName = document.getElementById('user-name')
+        this.userName = document.getElementById('userName')
 
         this.loginFormSubmit = this.loginFormSubmit.bind(this);
         this.registerFormSubmit = this.registerFormSubmit.bind(this);
