@@ -2,7 +2,6 @@ body {
     font-family: Roboto, sans-serif;
     color: #232227;
     background: url("../images/background.jpg") no-repeat fixed;
-    backdrop-filter: blur(5px);
     background-size: cover;
     height: 100vh;
 }
@@ -418,4 +417,73 @@ hr {
 .editModalInputs button:last-child:disabled,
 #createCardModal button:last-child:disabled {
     background-color: gray;
+}
+
+#modal_delete {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    z-index: 10;
+    display: none;
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    background: #eaebef;
+}
+
+#modal_delete h2 {
+    text-align: center;
+    font-size: 14px;
+}
+
+#buttons {
+    position: relative;
+}
+
+#delete_yes, #delete_no {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#delete_yes {
+    left: 15px;
+    top: 10px;
+    background: #006cba;
+    border: none;
+    color: #fff;
+}
+
+#delete_yes:hover {
+    background: #006ced;
+}
+
+#delete_yes:active {
+    box-shadow: inset 1px 1px 10px -1px
+}
+
+#delete_no {
+    right: 15px;
+    top: 10px;
+    background: #cb0b13;
+    border: none;
+    color: #ffffff;
+}
+
+#delete_no:hover {
+    background: #cb0b45;
+}
+
+#delete_no:active {
+    box-shadow: inset 1px 1px 10px -1px
+}
+
+#delete_no:focus, #delete_yes:focus {
+    outline: none;
 }
