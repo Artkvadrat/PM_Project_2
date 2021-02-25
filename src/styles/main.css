@@ -30,7 +30,7 @@ body {
 
 #user-name {
     display: none;
-    margin: 10px;
+    line-height: 44px;
 }
 
 .name {
@@ -298,7 +298,9 @@ hr {
     font-size: 20px;
 }
 
-#btn-login, #btn-reg {
+#btn-login,
+#btn-reg,
+#user-name button {
     text-decoration: none;
     color: #fff;
     background-color: #0787e7;
@@ -306,7 +308,8 @@ hr {
     border-radius: 5px;
 }
 
-#btn-reg {
+#btn-reg,
+#user-name button {
     color: #006cba;
     background-color: #ffffff;
 }
@@ -316,10 +319,19 @@ hr {
     cursor: pointer;
 }
 
-#btn-reg:hover {
+#btn-reg:hover,
+#user-name button:hover {
     cursor: pointer;
     background-color: #005493;
     color: white;
+}
+
+#user-name button {
+    border: 0;
+    margin-left: 10px;
+    font-size: 20px;
+    width: 80px;
+    outline: none;
 }
 
 #editModal {

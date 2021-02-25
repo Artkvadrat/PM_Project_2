@@ -13,7 +13,6 @@ export default class AuthService {
             },
         }).then((data) => {
             User.jwtToken = data.jwt;
-            console.log(data);
             User.username = data.user.username;
             emitter.emit('loggedIn');
         })

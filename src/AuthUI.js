@@ -26,6 +26,10 @@ class AuthUI {
 
         this.loginFormSubmit = this.loginFormSubmit.bind(this);
         this.registerFormSubmit = this.registerFormSubmit.bind(this);
+        this.registrationClick = this.registrationClick.bind(this);
+        this.loginClick = this.loginClick.bind(this);
+        this.showName = this.showName.bind(this);
+        this.logout = this.logout.bind(this);
         this.render = this.render.bind(this);
     }
 
@@ -34,8 +38,9 @@ class AuthUI {
             this.registerForm.classList.add('hide');
             this.loginForm.classList.add('hide');
             this.auth.style.display = 'none';
-            this.showName(User.username)
+            this.showName();
         } else {
+            this.showName();
             this.loginForm.classList.remove('hide');
         }
     }
@@ -67,6 +72,7 @@ class AuthUI {
         this.regBtn.onclick = this.registrationClick;
 
         emitter.subscribe('loggedIn', this.render);
+        emitter.subscribe('unauthorised', this.render);
 
         if (User.jwtToken) {
             emitter.emit('loggedIn');
@@ -75,22 +81,34 @@ class AuthUI {
 
     registrationClick(e) {
         e.preventDefault();
-        document.getElementById('auth').style.cssText = 'display: block'
-        document.getElementById('loginForm').classList.add('hide');
-        document.getElementById('registerForm').classList.remove('hide')
+        this.auth.style.cssText = 'display: block'
+        this.loginForm.classList.add('hide');
+        this.registerForm.classList.remove('hide')
     }
 
     loginClick(e) {
         e.preventDefault()
-        document.getElementById('auth').style.cssText = 'display: block'
-        document.getElementById('registerForm').classList.add('hide')
-        document.getElementById('loginForm').classList.remove('hide')
+        this.auth.style.cssText = 'display: block'
+        this.registerForm.classList.add('hide')
+        this.loginForm.classList.remove('hide')
     }
 
-    showName(name) {
-        this.btnRight.classList.add('hide')
-        this.userName.style.display = 'block'
-        this.userName.innerHTML = `<p class="name">Hello, ${name}</p>`
+
+    logout() {
+        User.clearLocalStorage();
+        emitter.emit('unauthorised');
+    }
+
+    showName() {
+        if (User.username) {
+            this.btnRight.classList.add('hide')
+            this.userName.style.display = 'flex';
+            this.userName.innerHTML = `<p class="name">Hello, ${User.username}</p><button id="logoutButton">Logout</button>`;
+            document.getElementById('logoutButton').addEventListener('click', this.logout);
+        } else {
+            this.btnRight.classList.remove('hide');
+            this.userName.style.display = 'none';
+        }
     }
 }
 
