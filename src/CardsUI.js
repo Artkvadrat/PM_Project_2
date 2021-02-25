@@ -41,7 +41,6 @@ class CardsUI {
 
     getCards() {
         return CardsService.getCards().then((cards) => {
-            console.log("cards " + JSON.stringify(cards))
             cards.forEach(this.createCard);
         });
     }

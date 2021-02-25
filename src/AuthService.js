@@ -13,9 +13,10 @@ export default class AuthService {
             },
         }).then((data) => {
             User.jwtToken = data.jwt;
-            emitter.emit('loggedIn')
-            return data
-        }).then(data => User.username = data.user.username)
+            console.log(data);
+            User.username = data.user.username;
+            emitter.emit('loggedIn');
+        })
     }
 
     static async register({registerUsername, registerEmail, registerPassword}) {
@@ -29,8 +30,8 @@ export default class AuthService {
             },
         }).then((data) => {
             User.jwtToken = data.jwt;
-            emitter.emit('loggedIn')
-            return data
+            User.username = data.user.username;
+            emitter.emit('loggedIn');
         });
     }
 }

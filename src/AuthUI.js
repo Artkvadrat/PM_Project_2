@@ -15,10 +15,6 @@ class AuthUI {
         this.registerEmail = document.getElementById('registerEmail');
         this.registerPassword = document.getElementById('registerPassword');
 
-        this.loginFormSubmit = this.loginFormSubmit.bind(this);
-        this.registerFormSubmit = this.registerFormSubmit.bind(this);
-        this.render = this.render.bind(this);
-
         this.registration = document.getElementById('registration');
         this.login = document.getElementById('login');
 
@@ -26,12 +22,14 @@ class AuthUI {
         this.loginBtn = document.getElementById('btn-login')
         this.regBtn = document.getElementById('btn-reg')
 
-        this.userName = document.querySelector('#user-name')
+        this.userName = document.getElementById('user-name')
+
+        this.loginFormSubmit = this.loginFormSubmit.bind(this);
+        this.registerFormSubmit = this.registerFormSubmit.bind(this);
+        this.render = this.render.bind(this);
     }
 
     render() {
-        console.log("User.jwtToken  " + User.jwtToken)
-        console.log('name' + User.username)
         if (User.jwtToken) {
             this.registerForm.classList.add('hide');
             this.loginForm.classList.add('hide');
